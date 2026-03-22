@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Oasis Boutique | Alquiler Vacacional</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            fondo: '#F6F2FF',
+            encabezado: '#ECE6F5',
+            primario: '#491D8B',
+            secundario: '#009D9A',
+            whatsapp: '#25D366',
+            footer: '#240A4A'
+          },
+          fontFamily: {
+            outfit: ['Outfit', 'sans-serif']
+          },
+          animation: {
+            'latido': 'latido 2s infinite',
+          },
+          keyframes: {
+            latido: {
+              '0%': { transform: 'scale(1)', boxShadow: '0 0 0 0 rgba(37, 211, 102, 0.7)' },
+              '50%': { transform: 'scale(1.05)', boxShadow: '0 0 0 15px rgba(37, 211, 102, 0)' },
+              '100%': { transform: 'scale(1)', boxShadow: '0 0 0 0 rgba(37, 211, 102, 0)' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="bg-fondo text-primario font-outfit relative">
+
+  <header class="w-full bg-encabezado z-30 relative">
+    <div class="max-w-7xl mx-auto px-4 md:px-8 py-4 md:py-5 flex justify-between items-center">
+      
+      <h1 class="text-xl md:text-2xl font-bold tracking-tight text-primario">Oasis Boutique</h1>
+      
+      <nav class="hidden md:flex gap-8 text-sm font-semibold text-primario/80">
+        <a href="#espacio" class="hover:text-secundario transition-colors">El Espacio</a>
+        <a href="#comodidades" class="hover:text-secundario transition-colors">Comodidades</a>
+        <a href="#resenas" class="hover:text-secundario transition-colors">Reseñas</a>
+        <a href="#ubicacion" class="hover:text-secundario transition-colors">Ubicación</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="espacio" class="max-w-7xl mx-auto px-4 md:px-8 pt-8 md:pt-12 pb-8 scroll-mt-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-3 h-[300px] md:h-[500px] rounded-2xl overflow-hidden shadow-lg cursor-pointer" id="gallery-grid">
+        <div class="col-span-1 md:col-span-2 md:row-span-2 relative group overflow-hidden" onclick="openLightbox(0)">
+          <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Sala principal" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        </div>
+        <div class="hidden md:block col-span-1 row-span-1 relative group overflow-hidden" onclick="openLightbox(1)">
+          <img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Habitación" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        </div>
+        <div class="hidden md:block col-span-1 row-span-1 relative group overflow-hidden" onclick="openLightbox(2)">
+          <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Baño" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        </div>
+        <div class="hidden md:block col-span-1 row-span-1 relative group overflow-hidden" onclick="openLightbox(3)">
+          <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cocina" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        </div>
+        <div class="hidden md:block col-span-1 row-span-1 relative group overflow-hidden" onclick="openLightbox(4)">
+          <img src="https://images.unsplash.com/photo-1574362848149-11496d93a7c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Exterior" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-primario/60 flex items-center justify-center transition-colors duration-300 group-hover:bg-primario/80">
+            <span class="text-white font-semibold text-lg flex items-center gap-2"><i class="fa-images fa-solid"></i> Ver todas las fotos</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="max-w-3xl mt-8 hidden md:block">
+        <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">Un Oasis Boutique Diseñado para tu Descanso.</h2>
+        
+        <p class="text-lg md:text-xl font-light opacity-90 text-primario/80">Más que un lugar para dormir, una experiencia creada para desconectar. Sumérgete en espacios de diseño vanguardista, luz natural y confort de primer nivel.</p>
+      </div>
+    </section>
+
+    <section class="sticky top-0 z-40 bg-fondo shadow-md py-4 px-4 border-b border-primario/5">
+      <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-end gap-3 md:gap-4">
+        
+        <div class="flex flex-col md:flex-row w-full gap-3 md:gap-4 relative">
+          <div class="flex-1">
+            <label for="arrival" class="block text-[11px] font-semibold text-primario/60 uppercase tracking-widest mb-1.5 ml-1">Llegada</label>
+            <div class="bg-white h-12 px-3 rounded-lg border border-primario/20 shadow-sm focus-within:border-secundario focus-within:ring-1 focus-within:ring-secundario transition-all flex items-center">
+              <input type="date" id="arrival" class="w-full text-sm font-medium outline-none text-primario bg-transparent cursor-pointer">
+            </div>
+          </div>
+          
+          <div class="flex-1">
+            <label for="departure" class="block text-[11px] font-semibold text-primario/60 uppercase tracking-widest mb-1.5 ml-1">Salida</label>
+            <div class="bg-white h-12 px-3 rounded-lg border border-primario/20 shadow-sm focus-within:border-secundario focus-within:ring-1 focus-within:ring-secundario transition-all flex items-center">
+              <input type="date" id="departure" class="w-full text-sm font-medium outline-none text-primario bg-transparent cursor-pointer">
+            </div>
+          </div>
+
+          <div class="flex-1 relative" id="guests-btn">
+            <label class="block text-[11px] font-semibold text-primario/60 uppercase tracking-widest mb-1.5 ml-1 cursor-pointer">Huéspedes</label>
+            <div class="bg-white h-12 px-3 rounded-lg border border-primario/20 shadow-sm hover:border-secundario transition-all flex items-center justify-between cursor-pointer">
+              <span id="guests-summary" class="text-sm font-medium text-primario">1 Adulto - 0 Niños</span>
+              <i class="fa-solid fa-chevron-down text-xs text-primario/40"></i>
+            </div>
+          </div>
+
+          <div id="guests-popover" class="hidden absolute top-[calc(100%+0.5rem)] left-0 md:left-auto md:right-0 w-full md:w-64 bg-white rounded-xl shadow-xl border border-primario/10 p-5 z-50">
+            <div class="flex justify-between items-center mb-6">
+              <p class="font-semibold text-primario text-lg">Adultos</p>
+              <div class="flex items-center gap-3">
+                <button class="w-8 h-8 rounded-full border border-secundario text-secundario flex items-center justify-center hover:bg-secundario hover:text-white transition" onclick="updateGuests('adults', -1)"><i class="fa-minus fa-solid text-xs"></i></button>
+                <span id="adults-count" class="font-medium w-4 text-center text-lg">1</span>
+                <button class="w-8 h-8 rounded-full border border-secundario text-secundario flex items-center justify-center hover:bg-secundario hover:text-white transition" onclick="updateGuests('adults', 1)"><i class="fa-plus fa-solid text-xs"></i></button>
+              </div>
+            </div>
+            <div class="flex justify-between items-center">
+              <p class="font-semibold text-primario text-lg">Niños</p>
+              <div class="flex items-center gap-3">
+                <button class="w-8 h-8 rounded-full border border-secundario text-secundario flex items-center justify-center hover:bg-secundario hover:text-white transition" onclick="updateGuests('children', -1)"><i class="fa-minus fa-solid text-xs"></i></button>
+                <span id="children-count" class="font-medium w-4 text-center text-lg">0</span>
+                <button class="w-8 h-8 rounded-full border border-secundario text-secundario flex items-center justify-center hover:bg-secundario hover:text-white transition" onclick="updateGuests('children', 1)"><i class="fa-plus fa-solid text-xs"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button onclick="initiateGeneralWhatsAppQuery()" class="w-full md:w-auto h-12 bg-whatsapp hover:bg-[#20ba56] text-white font-semibold px-6 rounded-lg shadow-md transition-colors flex items-center justify-center gap-2 whitespace-nowrap mt-4 md:mt-0 min-w-[220px]">
+          <i class="fa-brands fa-whatsapp text-lg"></i> <span>Consultar por WhatsApp</span>
+        </button>
+      </div>
+    </section>
+
+    <section id="comodidades" class="max-w-7xl mx-auto px-4 md:px-8 py-16 scroll-mt-28">
+      <h3 class="text-3xl font-bold mb-8">Detalles Pensados para Ti.</h3>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="flex items-center gap-3 bg-white p-4 rounded-xl shadow-sm border border-primario/5"><i class="fa-wifi fa-solid text-secundario text-xl w-6"></i><span class="font-medium">Wi-Fi Alta Velocidad</span></div>
+        <div class="flex items-center gap-3 bg-white p-4 rounded-xl shadow-sm border border-primario/5"><i class="fa-shower fa-solid text-secundario text-xl w-6"></i><span class="font-medium">1 Baño Completo</span></div>
+        <div class="flex items-center gap-3 bg-white p-4 rounded-xl shadow-sm border border-primario/5"><i class="fa-bed fa-solid text-secundario text-xl w-6"></i><span class="font-medium">2 Habitaciones</span></div>
+        <div class="flex items-center gap-3 bg-white p-4 rounded-xl shadow-sm border border-primario/5"><i class="fa-kitchen-set fa-solid text-secundario text-xl w-6"></i><span class="font-medium">Cocina Equipada</span></div>
+        <div class="flex items-center gap-3 bg-white p-4 rounded-xl shadow-sm border border-primario/5"><i class="fa-tv fa-solid text-secundario text-xl w-6"></i><span class="font-medium">TV Smart</span></div>
+        <div class="flex items-center gap-3 bg-white p-4 rounded-xl shadow-sm border border-primario/5"><i class="fa-fan fa-solid text-secundario text-xl w-6"></i><span class="font-medium">Ventiladores</span></div>
+        <div class="flex items-center gap-3 bg-white p-4 rounded-xl shadow-sm border border-primario/5"><i class="fa-water-ladder fa-solid text-secundario text-xl w-6"></i><span class="font-medium">Pileta Exclusiva</span></div>
+        <div class="flex items-center gap-3 bg-white p-4 rounded-xl shadow-sm border border-primario/5"><i class="fa-car fa-solid text-secundario text-xl w-6"></i><span class="font-medium">Cochera (1 auto)</span></div>
+      </div>
+    </section>
+
+    <section id="resenas" class="py-16 scroll-mt-28">
+      <div class="max-w-7xl mx-auto px-4 md:px-8">
+        <h3 class="text-3xl font-bold mb-10 text-primario">La Experiencia, Contada por Nuestros Huéspedes.</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <article class="bg-white p-6 rounded-2xl shadow-sm border border-primario/5">
+            <div class="flex gap-1 text-yellow-400 mb-3"><i class="fa-star fa-solid"></i><i class="fa-star fa-solid"></i><i class="fa-star fa-solid"></i><i class="fa-star fa-solid"></i><i class="fa-star fa-solid"></i></div>
+            <p class="font-light italic mb-4 text-primario/80">"El lugar superó nuestras expectativas. La decoración es hermosa, súper limpio y la pileta es increíble para relajarse al atardecer."</p>
+            <p class="font-semibold text-primario">María Laura G.</p>
+          </article>
+          <article class="bg-white p-6 rounded-2xl shadow-sm border border-primario/5">
+            <div class="flex gap-1 text-yellow-400 mb-3"><i class="fa-star fa-solid"></i><i class="fa-star fa-solid"></i><i class="fa-star fa-solid"></i><i class="fa-star fa-solid"></i><i class="fa-star fa-solid"></i></div>
+            <p class="font-light italic mb-4 text-primario/80">"Ubicación inmejorable, cerca de todo pero súper tranquilo de noche. La atención fue excelente desde el primer mensaje de WhatsApp."</p>
+            <p class="font-semibold text-primario">Esteban R.</p>
+          </article>
+          <article class="bg-white p-6 rounded-2xl shadow-sm border border-primario/5">
+            <div class="flex gap-1 text-yellow-400 mb-3"><i class="fa-star fa-solid"></i><i class="fa-star fa-solid"></i><i class="fa-star fa-solid"></i><i class="fa-star fa-solid"></i><i class="fa-star fa-solid"></i></div>
+            <p class="font-light italic mb-4 text-primario/80">"Fuimos con los chicos y estuvimos comodísimos. Las habitaciones son amplias y la cocina tiene de todo. ¡Volveremos seguro!"</p>
+            <p class="font-semibold text-primario">Familia Domínguez</p>
+          </article>
+        </div>
+        
+        <div class="mt-8 text-left">
+          <a href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-secundario font-bold hover:text-[#007f7c] transition-colors">
+            Leer las reseñas en Google Maps
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="ubicacion" class="max-w-7xl mx-auto px-4 md:px-8 pb-20 pt-8 scroll-mt-28">
+      <h3 class="text-3xl font-bold mb-8">En el Centro de Todo, Lejos del Ruido.</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <div>
+          <p class="text-lg mb-6">Ubicado estratégicamente para que disfrutes de la ciudad sin depender del auto, pero en una calle tranquila que garantiza tu descanso.</p>
+          <ul class="space-y-4">
+            <li class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-secundario/10 flex items-center justify-center text-secundario"><i class="fa-utensils fa-solid"></i></div><span>A 3 cuadras del Polo Gastronómico</span></li>
+            <li class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-secundario/10 flex items-center justify-center text-secundario"><i class="fa-store fa-solid"></i></div><span>A 5 minutos del Centro Comercial</span></li>
+            <li class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-secundario/10 flex items-center justify-center text-secundario"><i class="fa-tree fa-solid"></i></div><span>A 200m del Parque Principal</span></li>
+            <li class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-secundario/10 flex items-center justify-center text-secundario"><i class="fa-bus fa-solid"></i></div><span>A 10 min de la Terminal</span></li>
+          </ul>
+        </div>
+        <div class="h-80 w-full rounded-2xl overflow-hidden shadow-lg border border-primario/10 bg-gray-200">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13622.62887304128!2d-64.200156!3d-31.416563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHCsDI1JzAwLjAiUyA2NMKwMTInMDAuMCJX!5e0!3m2!1ses!2sar!4v1690000000000!5m2!1ses!2sar" 
+            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-footer text-white py-12 md:py-16">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+        <div>
+          <h4 class="text-2xl font-bold mb-2">Oasis Boutique</h4>
+          <p class="text-white/70 text-sm">Reserva directo · Mejor tarifa garantizada</p>
+        </div>
+        <ul class="flex gap-6 text-sm font-medium text-white/80">
+          <li><a href="#" class="hover:text-secundario transition-colors">Políticas</a></li>
+          <li><a href="#" class="hover:text-secundario transition-colors">Reglas</a></li>
+          <li><a href="#" class="hover:text-secundario transition-colors">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="mt-12 pt-8 border-t border-white/10 flex flex-col items-center justify-center text-sm text-white/40">
+        <p>© 2026 Oasis Boutique. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" onclick="openFloatingWhatsApp(event)" class="fixed bottom-6 right-6 z-50 animate-latido bg-whatsapp text-white w-14 h-14 rounded-full flex items-center justify-center transition-all group" aria-label="Chat en WhatsApp">
+    <i class="fa-brands fa-whatsapp text-3xl"></i>
+    <span class="absolute -top-1 -right-1 bg-red-500 text-white text-[11px] font-bold w-[22px] h-[22px] flex items-center justify-center rounded-full border-2 border-white shadow-sm">1</span>
+    <span class="absolute right-full mr-4 bg-white text-primario text-sm font-medium px-4 py-2 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none border border-primario/10">
+      ¿Dudas sobre tus fechas? ¡Hablemos!
+    </span>
+  </a>
+
+  <div id="lightbox" class="fixed inset-0 z-[100] bg-black/95 hidden flex items-center justify-center opacity-0 transition-opacity duration-300">
+    <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white/70 hover:text-white text-3xl transition z-50"><i class="fa-xmark fa-solid"></i></button>
+    <button onclick="changeLightboxImage(-1)" class="absolute left-4 md:left-8 text-white/50 hover:text-white text-4xl transition z-50"><i class="fa-chevron-left fa-solid"></i></button>
+    <button onclick="changeLightboxImage(1)" class="absolute right-4 md:right-8 text-white/50 hover:text-white text-4xl transition z-50"><i class="fa-chevron-right fa-solid"></i></button>
+    <img id="lightbox-img" src="" alt="Imagen ampliada" class="max-w-[90vw] max-h-[90vh] object-contain select-none">
+    <div class="absolute bottom-6 text-white/70 tracking-widest text-sm">
+      <span id="lightbox-counter">1</span> / <span id="lightbox-total">8</span>
+    </div>
+  </div>
+
+  <script>
+    // =========================================================================
+    // ✏️ EDITAR AQUÍ: NÚMERO DE WHATSAPP (JS)
+    // =========================================================================
+    const WHATSAPP_NUMBER = '5491100000000'; 
+
+    let adults = 2; 
+    let children = 0;
+
+    const guestsBtn = document.getElementById('guests-btn');
+    const guestsPopover = document.getElementById('guests-popover');
+    const guestsSummary = document.getElementById('guests-summary');
+    const adultsCountEl = document.getElementById('adults-count');
+    const childrenCountEl = document.getElementById('children-count');
+
+    // Inicializar UI de huéspedes
+    updateGuests('init', 0);
+
+    guestsBtn.addEventListener('click', (e) => {
+      guestsPopover.classList.toggle('hidden');
+      e.stopPropagation();
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!guestsBtn.contains(e.target) && !guestsPopover.contains(e.target)) {
+        guestsPopover.classList.add('hidden');
+      }
+    });
+
+    function updateGuests(type, change) {
+      if (type === 'adults') {
+        const newAdults = adults + change;
+        if (newAdults >= 1 && newAdults <= 6) adults = newAdults;
+      } else if (type === 'children') {
+        const newChildren = children + change;
+        if (newChildren >= 0 && newChildren <= 4) children = newChildren;
+      }
+      
+      adultsCountEl.innerText = adults;
+      childrenCountEl.innerText = children;
+      
+      const textAdults = adults === 1 ? 'Adulto' : 'Adultos';
+      const textChildren = children === 1 ? 'Niño' : 'Niños';
+      guestsSummary.innerText = `${adults} ${textAdults} - ${children} ${textChildren}`;
+    }
+
+    // =========================================================================
+    // ✏️ EDITAR AQUÍ: MENSAJES DE WHATSAPP PREDETERMINADOS (CON EL NOMBRE DEL LUGAR)
+    // =========================================================================
+    function initiateGeneralWhatsAppQuery() {
+      const greeting = "Hola, quisiera consultar sobre Oasis Boutique";
+      const encodedGreeting = encodeURIComponent(greeting);
+      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodedGreeting}`, '_blank');
+    }
+
+    function openFloatingWhatsApp(e) {
+      e.preventDefault();
+      const greeting = "Hola, quisiera consultar sobre Oasis Boutique";
+      const encodedGreeting = encodeURIComponent(greeting);
+      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodedGreeting}`, '_blank');
+    }
+
+    // =========================================================================
+    // ✏️ EDITAR AQUÍ: LINKS DE LAS IMÁGENES DEL LIGHTBOX (Galería ampliada)
+    // =========================================================================
+    const images = [
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1556910103-1c02745aae4d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1574362848149-11496d93a7c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80"
+    ];
+
+    let currentLightboxIndex = 0;
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCounter = document.getElementById('lightbox-counter');
+    const lightboxTotal = document.getElementById('lightbox-total');
+
+    lightboxTotal.innerText = images.length;
+
+    function openLightbox(index) {
+      currentLightboxIndex = index;
+      updateLightboxContent();
+      lightbox.classList.remove('hidden');
+      setTimeout(() => {
+        lightbox.classList.remove('opacity-0');
+        lightbox.classList.add('opacity-100');
+      }, 10);
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('opacity-100');
+      lightbox.classList.add('opacity-0');
+      setTimeout(() => {
+        lightbox.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+      }, 300);
+    }
+
+    function changeLightboxImage(direction) {
+      currentLightboxIndex += direction;
+      if (currentLightboxIndex < 0) currentLightboxIndex = images.length - 1;
+      if (currentLightboxIndex >= images.length) currentLightboxIndex = 0;
+      updateLightboxContent();
+    }
+
+    function updateLightboxContent() {
+      lightboxImg.src = images[currentLightboxIndex];
+      lightboxCounter.innerText = currentLightboxIndex + 1;
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('hidden')) {
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowRight') changeLightboxImage(1);
+        if (e.key === 'ArrowLeft') changeLightboxImage(-1);
+      }
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const today = new Date();
+      const tomorrow = new Date(today);
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      
+      document.getElementById('arrival').min = today.toISOString().split('T')[0];
+      document.getElementById('departure').min = tomorrow.toISOString().split('T')[0];
+    });
+  </script>
+</body>
+</html>
