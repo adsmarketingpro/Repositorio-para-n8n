@@ -168,6 +168,256 @@
               </div>
             </div>
             <div class="flex justify-between items-center">
+              <p class="font-semibold text-primario text-lg">Niños</p>Entendido perfectamente, arquitecto. Quedó clarísimo lo que buscás: querés un look **Google 100% nativo**, sin ninguna mensualidad ni plataforma intermediaria.
+
+Acabo de re-diseñar toda la sección de reseñas para clonar exactamente lo que me pasaste en las capturas. Aquí tienes el resumen de los cambios aplicados:
+
+1.  **Nuevo Encabezado de Google Reviews:** Eliminé el bloque de Trustindex anterior. Creé la estructura de tu captura `image_1d4c7c.png`. Ahora tenés: Logo de Google a color, 5 estrellas amarillas nativas, el texto "Excelente", el puntaje general (ej. 4.9) y la cantidad de reseñas (ej. 14 reseñas), todo alineado y limpio.
+2.  **Eliminación de línea verde:** Borré el borde superior turquesa/verde de las tarjetas.
+3.  **Estrellas Google Nativas:** Reemplacé el diseño de estrellas anterior por las estrellas amarillas de Google (`#FBBC05`) de la captura `image_1d4ce1.png`.
+4.  **Verificado Azulito en nueva ubicación:** Creé el escudito azul con tilde blanco de verificado clónico de tu captura `image_1d4cba.png`. Lo ubiqué **exactamente al lado de las estrellas** dentro de la tarjeta, tal como pediste.
+5.  **Look de Tarjeta Limpio:** Las tarjetas ahora tienen fondo blanco fijo, bordes redondeados y una sombra suave, copiando la estética de Google.
+6.  **Fotos de perfil:** Mantuve el espacio para que pegues las fotos reales de tus clientes o dejes el avatar genérico.
+
+Aquí tenés el código de tu Plantilla Maestra Premium con el **Google Native Review System** 100% hardcoded (hecho a mano), libre de suscripciones y con el look exacto que me exigiste:
+
+```html
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>{{NOMBRE_PROYECTO}} | Alquiler Vacacional</title>
+  
+  <link rel="preconnect" href="[https://fonts.googleapis.com](https://fonts.googleapis.com)">
+  <link rel="preconnect" href="[https://fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin>
+  <link href="[https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap](https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap)" rel="stylesheet">
+  <link rel="stylesheet" href="[https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css)">
+
+  <script src="[https://cdn.tailwindcss.com](https://cdn.tailwindcss.com)"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            fondo: 'rgb(var(--color-fondo) / <alpha-value>)',
+            encabezado: 'rgb(var(--color-encabezado) / <alpha-value>)',
+            tarjeta: 'rgb(var(--color-tarjeta) / <alpha-value>)',
+            primario: 'rgb(var(--color-primario) / <alpha-value>)',
+            secundario: 'rgb(var(--color-secundario) / <alpha-value>)',
+            whatsapp: '#25D366',
+            footer: 'rgb(var(--color-footer) / <alpha-value>)'
+          },
+          fontFamily: {
+            outfit: ['Outfit', 'sans-serif']
+          },
+          animation: {
+            'latido': 'latido 2s infinite',
+          },
+          keyframes: {
+            latido: {
+              '0%': { transform: 'scale(1)', boxShadow: '0 0 0 0 rgba(37, 211, 102, 0.7)' },
+              '50%': { transform: 'scale(1.05)', boxShadow: '0 0 0 15px rgba(37, 211, 102, 0)' },
+              '100%': { transform: 'scale(1)', boxShadow: '0 0 0 0 rgba(37, 211, 102, 0)' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+    /* =========================================================
+       SISTEMA DE TEMAS (Dynamic Theming)
+       ========================================================= */
+    :root {
+      --color-fondo: 246 242 255;      /* #F6F2FF */
+      --color-encabezado: 236 230 245; /* #ECE6F5 */
+      --color-tarjeta: 255 255 255;    /* Blanco */
+      --color-primario: 73 29 139;     /* #491D8B */
+      --color-secundario: 0 157 154;   /* #009D9A */
+      --color-footer: 36 10 74;        /* #240A4A */
+    }
+
+    [data-theme="marron"] {
+      --color-fondo: 250 244 235;      /* Beige Suave */
+      --color-encabezado: 239 232 221; /* Beige un poco más oscuro */
+      --color-tarjeta: 255 255 255;    /* Blanco */
+      --color-primario: 90 59 34;      /* Marrón Oscuro */
+      --color-secundario: 107 142 35;  /* Verde Oliva```html
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>{{NOMBRE_PROYECTO}} | Alquiler Vacacional</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            fondo: 'rgb(var(--color-fondo) / <alpha-value>)',
+            encabezado: 'rgb(var(--color-encabezado) / <alpha-value>)',
+            tarjeta: 'rgb(var(--color-tarjeta) / <alpha-value>)',
+            primario: 'rgb(var(--color-primario) / <alpha-value>)',
+            secundario: 'rgb(var(--color-secundario) / <alpha-value>)',
+            whatsapp: '#25D366',
+            footer: 'rgb(var(--color-footer) / <alpha-value>)'
+          },
+          fontFamily: {
+            outfit: ['Outfit', 'sans-serif']
+          },
+          animation: {
+            'latido': 'latido 2s infinite',
+          },
+          keyframes: {
+            latido: {
+              '0%': { transform: 'scale(1)', boxShadow: '0 0 0 0 rgba(37, 211, 102, 0.7)' },
+              '50%': { transform: 'scale(1.05)', boxShadow: '0 0 0 15px rgba(37, 211, 102, 0)' },
+              '100%': { transform: 'scale(1)', boxShadow: '0 0 0 0 rgba(37, 211, 102, 0)' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+    /* =========================================================
+       SISTEMA DE TEMAS DE LA PLANTILLA GLOBAL (sigue funcionando)
+       ========================================================= */
+    :root {
+      --color-fondo: 246 242 255;      /* #F6F2FF */
+      --color-encabezado: 236 230 245; /* #ECE6F5 */
+      --color-tarjeta: 255 255 255;    /* Blanco */
+      --color-primario: 73 29 139;     /* #491D8B */
+      --color-secundario: 0 157 154;   /* #009D9A */
+      --color-footer: 36 10 74;        /* #240A4A */
+    }
+
+    [data-theme="marron"] {
+      --color-fondo: 250 244 235;      /* Beige Suave */
+      --color-encabezado: 239 232 221; /* Beige un poco más oscuro */
+      --color-tarjeta: 255 255 255;    /* Blanco */
+      --color-primario: 90 59 34;      /* Marrón Oscuro */
+      --color-secundario: 107 142 35;  /* Verde Oliva */
+      --color-footer: 54 34 17;        /* Marrón Ultra Oscuro */
+    }
+
+    [data-theme="noche"] {
+      --color-fondo: 18 18 18;         /* Gris Grafito Oscuro */
+      --color-encabezado: 30 30 30;    /* Gris un poco más claro */
+      --color-tarjeta: 36 36 36;       /* Gris Tarjetas */
+      --color-primario: 243 244 246;   /* Blanco Humo (Para Textos) */
+      --color-secundario: 0 173 181;   /* Cyan Brillante */
+      --color-footer: 0 0 0;           /* Negro Puro */
+    }
+  </style>
+</head>
+<body class="bg-fondo text-primario font-outfit relative transition-colors duration-500">
+
+  <header class="w-full bg-encabezado z-30 relative transition-colors duration-500">
+    <div class="max-w-7xl mx-auto px-4 md:px-8 py-4 md:py-5 flex justify-between items-center">
+      
+      <h1 class="text-xl md:text-2xl font-bold tracking-tight text-primario">{{NOMBRE_PROYECTO}}</h1>
+      
+      <div class="flex items-center gap-6">
+        <nav class="hidden md:flex gap-8 text-sm font-semibold text-primario/80">
+          <a href="#espacio" class="hover:text-secundario transition-colors">El Espacio</a>
+          <a href="#comodidades" class="hover:text-secundario transition-colors">Comodidades</a>
+          <a href="#resenas" class="hover:text-secundario transition-colors">Reseñas</a>
+          <a href="#ubicacion" class="hover:text-secundario transition-colors">Ubicación</a>
+        </nav>
+
+        <div class="flex items-center gap-2 pl-4 border-l border-primario/20">
+          <button onclick="setTheme('violeta')" class="w-5 h-5 rounded-full bg-[#491D8B] border border-white/20 shadow-sm hover:scale-110 transition-transform" title="Tema Violeta"></button>
+          <button onclick="setTheme('marron')" class="w-5 h-5 rounded-full bg-[#5A3B22] border border-white/20 shadow-sm hover:scale-110 transition-transform" title="Tema Tierra"></button>
+          <button onclick="setTheme('noche')" class="w-5 h-5 rounded-full bg-[#121212] border border-gray-400 shadow-sm hover:scale-110 transition-transform" title="Tema Noche"></button>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <main>
+    <section id="espacio" class="max-w-7xl mx-auto px-4 md:px-8 pt-8 md:pt-12 pb-8 scroll-mt-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-3 h-[300px] md:h-[500px] rounded-2xl overflow-hidden shadow-lg cursor-pointer" id="gallery-grid">
+        <div class="col-span-1 md:col-span-2 md:row-span-2 relative group overflow-hidden" onclick="openLightbox(0)">
+          <img src="{{FOTO_1}}" alt="Sala principal" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        </div>
+        <div class="hidden md:block col-span-1 row-span-1 relative group overflow-hidden" onclick="openLightbox(1)">
+          <img src="{{FOTO_2}}" alt="Habitación" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        </div>
+        <div class="hidden md:block col-span-1 row-span-1 relative group overflow-hidden" onclick="openLightbox(2)">
+          <img src="{{FOTO_3}}" alt="Baño" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        </div>
+        <div class="hidden md:block col-span-1 row-span-1 relative group overflow-hidden" onclick="openLightbox(3)">
+          <img src="{{FOTO_4}}" alt="Cocina" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        </div>
+        <div class="hidden md:block col-span-1 row-span-1 relative group overflow-hidden" onclick="openLightbox(4)">
+          <img src="{{FOTO_5}}" alt="Exterior" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-primario/60 flex items-center justify-center transition-colors duration-300 group-hover:bg-primario/80">
+            <span class="text-white font-semibold text-lg flex items-center gap-2"><i class="fa-images fa-solid"></i> Ver todas las fotos</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="max-w-3xl mt-8 hidden md:block">
+        <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">{{TITULO_HERO}}</h2>
+        <p class="text-lg md:text-xl font-light opacity-90 text-primario/80">{{DESCRIPCION_HERO}}</p>
+      </div>
+    </section>
+
+    <section class="sticky top-0 z-40 bg-fondo shadow-md py-4 px-4 border-b border-primario/5 transition-colors duration-500">
+      <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-end gap-3 md:gap-4">
+        
+        <div class="flex flex-col md:flex-row w-full gap-3 md:gap-4 relative">
+          <div class="flex-1">
+            <label for="arrival" class="block text-[11px] font-semibold text-primario/60 uppercase tracking-widest mb-1.5 ml-1">Llegada</label>
+            <div class="bg-tarjeta h-12 px-3 rounded-lg border border-primario/20 shadow-sm focus-within:border-secundario focus-within:ring-1 focus-within:ring-secundario transition-all flex items-center">
+              <input type="date" id="arrival" class="w-full text-sm font-medium outline-none text-primario bg-transparent cursor-pointer color-scheme-auto">
+            </div>
+          </div>
+          
+          <div class="flex-1">
+            <label for="departure" class="block text-[11px] font-semibold text-primario/60 uppercase tracking-widest mb-1.5 ml-1">Salida</label>
+            <div class="bg-tarjeta h-12 px-3 rounded-lg border border-primario/20 shadow-sm focus-within:border-secundario focus-within:ring-1 focus-within:ring-secundario transition-all flex items-center">
+              <input type="date" id="departure" class="w-full text-sm font-medium outline-none text-primario bg-transparent cursor-pointer color-scheme-auto">
+            </div>
+          </div>
+
+          <div class="flex-1 relative" id="guests-btn">
+            <label class="block text-[11px] font-semibold text-primario/60 uppercase tracking-widest mb-1.5 ml-1 cursor-pointer">Huéspedes</label>
+            <div class="bg-tarjeta h-12 px-3 rounded-lg border border-primario/20 shadow-sm hover:border-secundario transition-all flex items-center justify-between cursor-pointer">
+              <span id="guests-summary" class="text-sm font-medium text-primario">1 Adulto - 0 Niños</span>
+              <i class="fa-solid fa-chevron-down text-xs text-primario/40"></i>
+            </div>
+          </div>
+
+          <div id="guests-popover" class="hidden absolute top-[calc(100%+0.5rem)] left-0 md:left-auto md:right-0 w-full md:w-64 bg-tarjeta rounded-xl shadow-xl border border-primario/10 p-5 z-50">
+            <div class="flex justify-between items-center mb-6">
+              <p class="font-semibold text-primario text-lg">Adultos</p>
+              <div class="flex items-center gap-3">
+                <button class="w-8 h-8 rounded-full border border-secundario text-secundario flex items-center justify-center hover:bg-secundario hover:text-white transition" onclick="updateGuests('adults', -1)"><i class="fa-minus fa-solid text-xs"></i></button>
+                <span id="adults-count" class="font-medium w-4 text-center text-lg">1</span>
+                <button class="w-8 h-8 rounded-full border border-secundario text-secundario flex items-center justify-center hover:bg-secundario hover:text-white transition" onclick="updateGuests('adults', 1)"><i class="fa-plus fa-solid text-xs"></i></button>
+              </div>
+            </div>
+            <div class="flex justify-between items-center">
               <p class="font-semibold text-primario text-lg">Niños</p>
               <div class="flex items-center gap-3">
                 <button class="w-8 h-8 rounded-full border border-secundario text-secundario flex items-center justify-center hover:bg-secundario hover:text-white transition" onclick="updateGuests('children', -1)"><i class="fa-minus fa-solid text-xs"></i></button>
@@ -210,119 +460,132 @@
       </div>
     </section>
 
-    <section id="resenas" class="py-16 scroll-mt-28 bg-primario/5">
+    <section id="resenas" class="py-16 scroll-mt-28 bg-transparent">
       <div class="max-w-7xl mx-auto px-4 md:px-8">
         
-        <div class="flex flex-col md:flex-row items-start md:items-center justify-between mb-10 gap-6">
-          <div>
-            <h3 class="text-3xl font-bold text-primario mb-2">Lo que dicen nuestros huéspedes</h3>
-            <div class="flex items-center gap-3">
-              <svg class="w-8 h-8" viewBox="0 0 48 48">
+        <div class="mb-10 p-6 bg-tarjeta rounded-2xl border border-primario/10 shadow-sm transition-colors duration-500">
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            
+            <div class="flex items-center gap-2.5">
+              <svg class="h-6 w-auto flex-shrink-0" viewBox="0 0 48 48">
                 <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"></path>
                 <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"></path>
                 <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"></path>
                 <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"></path>
               </svg>
-              <div class="flex flex-col">
-                <div class="flex items-center gap-2">
-                  <span class="text-xl font-bold text-primario">Excelente</span>
-                  <span class="text-xl font-bold text-primario">4.9</span>
-                  <div class="flex text-yellow-400 text-sm">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-star fa-solid"></i><i class="fa-star fa-solid"></i>
-                  </div>
-                </div>
-                <span class="text-xs text-primario/70 font-medium tracking-wide">Basado en 45 reseñas de Google</span>
+              
+              <div class="flex gap-0.5 text-[#FBBC05] text-xl">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+              
+              <div class="flex items-center gap-1.5 text-primario">
+                <span class="font-semibold text-sm">Excelente</span>
+                <span class="font-semibold text-sm">4.9</span>
+                <span class="text-xs font-medium text-primario/70">{{GOOGLE_CANTIDAD_RESEÑAS}} reseñas</span>
               </div>
             </div>
-          </div>
 
-          <a href="{{LINK_GOOGLE_MAPS}}" target="_blank" rel="noopener noreferrer" class="bg-white border border-primario/10 text-primario hover:bg-gray-50 font-semibold py-2 px-4 rounded-lg shadow-sm transition-colors flex items-center gap-2 text-sm">
-            Escribir una reseña <i class="fa-solid fa-arrow-up-right-from-square text-xs opacity-70"></i>
-          </a>
+            <a href="{{LINK_GOOGLE_MAPS}}" target="_blank" rel="noopener noreferrer" class="inline-block border border-primario/10 text-primario hover:bg-primario/5 font-semibold py-2 px-4 rounded-lg shadow-sm transition-colors text-xs whitespace-nowrap">
+              Escribir una reseña
+            </a>
+          </div>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           
-          <article class="bg-tarjeta p-6 rounded-2xl shadow-sm border border-primario/10 relative flex flex-col justify-between">
-            <div class="absolute top-6 right-6 opacity-30">
-              <i class="fa-brands fa-google text-2xl"></i>
-            </div>
+          <article class="bg-tarjeta p-6 rounded-2xl shadow-sm border border-primario/10 flex flex-col gap-5 transition-colors duration-500">
             
-            <div>
-              <div class="flex items-center gap-4 mb-4">
-                <img src="https://ui-avatars.com/api/?name=Maria+G&background=random&color=fff" alt="Usuario" class="w-11 h-11 rounded-full object-cover shadow-sm">
-                <div>
-                  <h4 class="font-bold text-primario text-sm">María Laura G.</h4>
-                  <p class="text-xs text-primario/60">Hace 2 semanas</p>
-                </div>
+            <div class="flex items-center gap-4">
+              <img src="https://ui-avatars.com/api/?name=Maria+G&background=random&color=fff" alt="Usuario" class="w-11 h-11 rounded-full object-cover shadow-inner">
+              <div>
+                <h4 class="font-bold text-primario text-sm">María Laura G.</h4>
+                <p class="text-xs text-primario/60leading-none">Hace 2 semanas</p>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <div class="flex gap-0.5 text-[#FBBC05] text-sm">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
               </div>
               
-              <div class="flex gap-1 text-yellow-400 mb-3 text-xs">
-                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-star fa-solid"></i><i class="fa-star fa-solid"></i>
+              <div class="flex items-center gap-1.5 text-xs font-medium text-primario/70">
+                <span class="w-4 h-4 bg-[#1A73E8] flex-shrink-0 rounded-full flex items-center justify-center text-white text-[9px]">
+                  <i class="fa-solid fa-check"></i>
+                </span>
+                Reseña de Google verificada
               </div>
-              
-              <p class="font-light text-sm text-primario/90 leading-relaxed">
+            </div>
+
+            <div class="text-sm text-primario/90 leading-relaxed font-light">
+              <p>
                 "El lugar superó nuestras expectativas. La decoración es hermosa, súper limpio y la pileta es increíble para relajarse al atardecer."
               </p>
             </div>
+
           </article>
 
-          <article class="bg-tarjeta p-6 rounded-2xl shadow-sm border border-primario/10 relative flex flex-col justify-between">
-            <div class="absolute top-6 right-6 opacity-30">
-              <i class="fa-brands fa-google text-2xl"></i>
-            </div>
+          <article class="bg-tarjeta p-6 rounded-2xl shadow-sm border border-primario/10 flex flex-col gap-5 transition-colors duration-500">
             
-            <div>
-              <div class="flex items-center gap-4 mb-4">
-                <img src="https://ui-avatars.com/api/?name=Esteban+R&background=random&color=fff" alt="Usuario" class="w-11 h-11 rounded-full object-cover shadow-sm">
-                <div>
-                  <h4 class="font-bold text-primario text-sm">Esteban R.</h4>
-                  <p class="text-xs text-primario/60">Hace 1 mes</p>
-                </div>
+            <div class="flex items-center gap-4">
+              <img src="https://ui-avatars.com/api/?name=Esteban+R&background=random&color=fff" alt="Usuario" class="w-11 h-11 rounded-full object-cover shadow-inner">
+              <div>
+                <h4 class="font-bold text-primario text-sm">Esteban R.</h4>
+                <p class="text-xs text-primario/60leading-none">Hace 1 mes</p>
               </div>
-              
-              <div class="flex gap-1 text-yellow-400 mb-3 text-xs">
-                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-star fa-solid"></i><i class="fa-star fa-solid"></i>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <div class="flex gap-0.5 text-[#FBBC05] text-sm">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
               </div>
-              
-              <p class="font-light text-sm text-primario/90 leading-relaxed">
+              <div class="flex items-center gap-1.5 text-xs font-medium text-primario/70">
+                <span class="w-4 h-4 bg-[#1A73E8] flex-shrink-0 rounded-full flex items-center justify-center text-white text-[9px]">
+                  <i class="fa-solid fa-check"></i>
+                </span>
+                Reseña de Google verificada
+              </div>
+            </div>
+
+            <div class="text-sm text-primario/90 leading-relaxed font-light">
+              <p>
                 "Ubicación inmejorable, cerca de todo pero súper tranquilo de noche. La atención fue excelente desde el primer mensaje de WhatsApp. Lo recomiendo totalmente."
               </p>
             </div>
+
           </article>
 
-          <article class="bg-tarjeta p-6 rounded-2xl shadow-sm border border-primario/10 relative flex flex-col justify-between">
-            <div class="absolute top-6 right-6 opacity-30">
-              <i class="fa-brands fa-google text-2xl"></i>
-            </div>
+          <article class="bg-tarjeta p-6 rounded-2xl shadow-sm border border-primario/10 flex flex-col gap-5 transition-colors duration-500">
             
-            <div>
-              <div class="flex items-center gap-4 mb-4">
-                <img src="https://ui-avatars.com/api/?name=Familia+Dominguez&background=random&color=fff" alt="Usuario" class="w-11 h-11 rounded-full object-cover shadow-sm">
-                <div>
-                  <h4 class="font-bold text-primario text-sm">Familia Domínguez</h4>
-                  <p class="text-xs text-primario/60">Hace 3 meses</p>
-                </div>
+            <div class="flex items-center gap-4">
+              <img src="https://ui-avatars.com/api/?name=Familia+Dominguez&background=random&color=fff" alt="Usuario" class="w-11 h-11 rounded-full object-cover shadow-inner">
+              <div>
+                <h4 class="font-bold text-primario text-sm">Familia Domínguez</h4>
+                <p class="text-xs text-primario/60leading-none">Hace 3 meses</p>
               </div>
-              
-              <div class="flex gap-1 text-yellow-400 mb-3 text-xs">
-                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-star fa-solid"></i><i class="fa-star fa-solid"></i>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <div class="flex gap-0.5 text-[#FBBC05] text-sm">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
               </div>
-              
-              <p class="font-light text-sm text-primario/90 leading-relaxed">
+              <div class="flex items-center gap-1.5 text-xs font-medium text-primario/70">
+                <span class="w-4 h-4 bg-[#1A73E8] flex-shrink-0 rounded-full flex items-center justify-center text-white text-[9px]">
+                  <i class="fa-solid fa-check"></i>
+                </span>
+                Reseña de Google verificada
+              </div>
+            </div>
+
+            <div class="text-sm text-primario/90 leading-relaxed font-light">
+              <p>
                 "Fuimos con los chicos y estuvimos comodísimos. Las habitaciones son amplias y la cocina tiene de todo. ¡Volveremos seguro para las próximas vacaciones!"
               </p>
             </div>
+
           </article>
 
         </div>
         
-        <div class="mt-10 text-center">
-          <a href="{{LINK_GOOGLE_MAPS}}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-secundario font-bold hover:opacity-80 transition-opacity">
-            Ver todas las reseñas en Google
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-          </a>
-        </div>
       </div>
     </section>
 
@@ -337,7 +600,7 @@
             <li class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-secundario/10 flex items-center justify-center text-secundario"><i class="fa-tree fa-solid"></i></div><span>Espacios verdes próximos</span></li>
           </ul>
         </div>
-        <div class="h-80 w-full rounded-2xl overflow-hidden shadow-lg border border-primario/10 bg-tarjeta">
+        <div class="h-80 w-full rounded-2xl overflow-hidden shadow-lg border border-primario/10 bg-tarjeta transition-colors duration-500">
           <iframe 
             src="{{LINK_MAPA}}" 
             width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
@@ -386,7 +649,7 @@
 
   <script>
     // ==========================================
-    // SISTEMA DE TEMAS (JS)
+    // SISTEMA DE TEMAS DE LA PLANTILLA GLOBAL (JS)
     // ==========================================
     function setTheme(themeName) {
       document.documentElement.setAttribute('data-theme', themeName);
