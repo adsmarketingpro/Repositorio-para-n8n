@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>{{NOMBRE_PROYECTO}} | Alquiler Vacacional</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            // Variables de color globales de la plantilla (siguen funcionando)
+            fondo: 'rgb(var(--color-fondo) / <alpha-value>)',
+            encabezado: 'rgb(var(--color-encabezado) / <alpha-value>)',
+            tarjeta: 'rgb(var(--color-tarjeta) / <alpha-value>)',
+            primario: 'rgb(var(--color-primario) / <alpha-value>)',
+            secundario: 'rgb(var(--color-secundario) / <alpha-value>)',
+            whatsapp: '#25D366',
+            footer: 'rgb(var(--color-footer) / <alpha-value>)'
+          },
+          fontFamily: {
+            outfit: ['Outfit', 'sans-serif']
+          },
+          animation: {
+            'latido': 'latido 2s infinite',
+          },
+          keyframes: {
+            latido: {
+              '0%': { transform: 'scale(1)', boxShadow: '0 0 0 0 rgba(37, 211, 102, 0.7)' },
+              '50%': { transform: 'scale(1.05)', boxShadow: '0 0 0 15px rgba(37, 211, 102, 0)' },
+              '100%': { transform: 'scale(1)', boxShadow: '0 0 0 0 rgba(37, 211, 102, 0)' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+    /* =========================================================
+       SISTEMA DE TEMAS DE LA PLANTILLA GLOBAL (sigue funcionando)
+       ========================================================= */
+    :root {
+      --color-fondo: 246 242 255;      /* #F6F2FF */
+      --color-encabezado: 236 230 245; /* #ECE6F5 */
+      --color-tarjeta: 255 255 255;    /* Blanco */
+      --color-primario: 73 29 139;     /* #491D8B */
+      --color-secundario: 0 157 154;   /* #009D9A */
+      --color-footer: 36 10 74;        /* #240A4A */
+    }
+
+    [data-theme="marron"] {
+      --color-fondo: 250 244 235;      /* Beige Suave */
+      --color-encabezado: 239 232 221; /* Beige un poco más oscuro */
+      --color-tarjeta: 255 255 255;    /* Blanco */
+      --color-primario: 90 59 34;      /* Marrón Oscuro */
+      --color-secundario: 107 142 35;  /* Verde Oliva */
+      --color-footer: 54 34 17;        /* Marrón Ultra Oscuro */
+    }
+
+    [data-theme="noche"] {
+      --color-fondo: 18 18 18;         /* Gris Grafito Oscuro */
+      --color-encabezado: 30 30 30;    /* Gris un poco más claro */
+      --color-tarjeta: 36 36 36;       /* Gris Tarjetas */
+      --color-primario: 243 244 246;   /* Blanco Humo (Para Textos) */
+      --color-secundario: 0 173 181;   /* Cyan Brillante */
+      --color-footer: 0 0 0;           /* Negro Puro */
+    }
+  </style>
+</head>
+<body class="bg-fondo text-primario font-outfit relative transition-colors duration-500">
+
+  <header class="w-full bg-encabezado z-30 relative transition-colors duration-500">
+    <div class="max-w-7xl mx-auto px-4 md:px-8 py-4 md:py-5 flex justify-between items-center">
+      
+      <h1 class="text-xl md:text-2xl font-bold tracking-tight text-primario">{{NOMBRE_PROYECTO}}</h1>
+      
+      <div class="flex items-center gap-6">
+        <nav class="hidden md:flex gap-8 text-sm font-semibold text-primario/80">
+          <a href="#espacio" class="hover:text-secundario transition-colors">El Espacio</a>
+          <a href="#comodidades" class="hover:text-secundario transition-colors">Comodidades</a>
+          <a href="#resenas" class="hover:text-secundario transition-colors">Reseñas</a>
+          <a href="#ubicacion" class="hover:text-secundario transition-colors">Ubicación</a>
+        </nav>
+
+        <div class="flex items-center gap-2 pl-4 border-l border-primario/20">
+          <button onclick="setTheme('violeta')" class="w-5 h-5 rounded-full bg-[#491D8B] border border-white/20 shadow-sm hover:scale-110 transition-transform" title="Tema Violeta"></button>
+          <button onclick="setTheme('marron')" class="w-5 h-5 rounded-full bg-[#5A3B22] border border-white/20 shadow-sm hover:scale-110 transition-transform" title="Tema Tierra"></button>
+          <button onclick="setTheme('noche')" class="w-5 h-5 rounded-full bg-[#121212] border border-gray-400 shadow-sm hover:scale-110 transition-transform" title="Tema Noche"></button>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <main>
+    <section id="espacio" class="max-w-7xl mx-auto px-4 md:px-8 pt-8 md:pt-12 pb-8 scroll-mt-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-3 h-[300px] md:h-[500px] rounded-2xl overflow-hidden shadow-lg cursor-pointer" id="gallery-grid">
+        <div class="col-span-1 md:col-span-2 md:row-span-2 relative group overflow-hidden" onclick="openLightbox(0)">
+          <img src="{{FOTO_1}}" alt="Sala principal" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        </div>
+        <div class="hidden md:block col-span-1 row-span-1 relative group overflow-hidden" onclick="openLightbox(1)">
+          <img src="{{FOTO_2}}" alt="Habitación" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        </div>
+        <div class="hidden md:block col-span-1 row-span-1 relative group overflow-hidden" onclick="openLightbox(2)">
+          <img src="{{FOTO_3}}" alt="Baño" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        </div>
+        <div class="hidden md:block col-span-1 row-span-1 relative group overflow-hidden" onclick="openLightbox(3)">
+          <img src="{{FOTO_4}}" alt="Cocina" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        </div>
+        <div class="hidden md:block col-span-1 row-span-1 relative group overflow-hidden" onclick="openLightbox(4)">
+          <img src="{{FOTO_5}}" alt="Exterior" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-primario/60 flex items-center justify-center transition-colors duration-300 group-hover:bg-primario/80">
+            <span class="text-white font-semibold text-lg flex items-center gap-2"><i class="fa-images fa-solid"></i> Ver todas las fotos</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="max-w-3xl mt-8 hidden md:block">
+        <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">{{TITULO_HERO}}</h2>
+        <p class="text-lg md:text-xl font-light opacity-90 text-primario/80">{{DESCRIPCION_HERO}}</p>
+      </div>
+    </section>
+
+    <section class="sticky top-0 z-40 bg-fondo shadow-md py-4 px-4 border-b border-primario/5 transition-colors duration-500">
+      <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-end gap-3 md:gap-4">
+        
+        <div class="flex flex-col md:flex-row w-full gap-3 md:gap-4 relative">
+          <div class="flex-1">
+            <label for="arrival" class="block text-[11px] font-semibold text-primario/60 uppercase tracking-widest mb-1.5 ml-1">Llegada</label>
+            <div class="bg-tarjeta h-12 px-3 rounded-lg border border-primario/20 shadow-sm focus-within:border-secundario focus-within:ring-1 focus-within:ring-secundario transition-all flex items-center">
+              <input type="date" id="arrival" class="w-full text-sm font-medium outline-none text-primario bg-transparent cursor-pointer color-scheme-auto">
+            </div>
+          </div>
+          
+          <div class="flex-1">
+            <label for="departure" class="block text-[11px] font-semibold text-primario/60 uppercase tracking-widest mb-1.5 ml-1">Salida</label>
+            <div class="bg-tarjeta h-12 px-3 rounded-lg border border-primario/20 shadow-sm focus-within:border-secundario focus-within:ring-1 focus-within:ring-secundario transition-all flex items-center">
+              <input type="date" id="departure" class="w-full text-sm font-medium outline-none text-primario bg-transparent cursor-pointer color-scheme-auto">
+            </div>
+          </div>
+
+          <div class="flex-1 relative" id="guests-btn">
+            <label class="block text-[11px] font-semibold text-primario/60 uppercase tracking-widest mb-1.5 ml-1 cursor-pointer">Huéspedes</label>
+            <div class="bg-tarjeta h-12 px-3 rounded-lg border border-primario/20 shadow-sm hover:border-secundario transition-all flex items-center justify-between cursor-pointer">
+              <span id="guests-summary" class="text-sm font-medium text-primario">1 Adulto - 0 Niños</span>
+              <i class="fa-solid fa-chevron-down text-xs text-primario/40"></i>
+            </div>
+          </div>
+
+          <div id="guests-popover" class="hidden absolute top-[calc(100%+0.5rem)] left-0 md:left-auto md:right-0 w-full md:w-64 bg-tarjeta rounded-xl shadow-xl border border-primario/10 p-5 z-50">
+            <div class="flex justify-between items-center mb-6">
+              <p class="font-semibold text-primario text-lg">Adultos</p>
+              <div class="flex items-center gap-3">
+                <button class="w-8 h-8 rounded-full border border-secundario text-secundario flex items-center justify-center hover:bg-secundario hover:text-white transition" onclick="updateGuests('adults', -1)"><i class="fa-minus fa-solid text-xs"></i></button>
+                <span id="adults-count" class="font-medium w-4 text-center text-lg">1</span>
+                <button class="w-8 h-8 rounded-full border border-secundario text-secundario flex items-center justify-center hover:bg-secundario hover:text-white transition" onclick="updateGuests('adults', 1)"><i class="fa-plus fa-solid text-xs"></i></button>
+              </div>
+            </div>
+            <div class="flex justify-between items-center">
+              <p class="font-semibold text-primario text-lg">Niños</p>
+              <div class="flex items-center gap-3">
+                <button class="w-8 h-8 rounded-full border border-secundario text-secundario flex items-center justify-center hover:bg-secundario hover:text-white transition" onclick="updateGuests('children', -1)"><i class="fa-minus fa-solid text-xs"></i></button>
+                <span id="children-count" class="font-medium w-4 text-center text-lg">0</span>
+                <button class="w-8 h-8 rounded-full border border-secundario text-secundario flex items-center justify-center hover:bg-secundario hover:text-white transition" onclick="updateGuests('children', 1)"><i class="fa-plus fa-solid text-xs"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button onclick="initiateGeneralWhatsAppQuery()" class="w-full md:w-auto h-12 bg-whatsapp hover:bg-[#20ba56] text-white font-semibold px-6 rounded-lg shadow-md transition-colors flex items-center justify-center gap-2 whitespace-nowrap mt-4 md:mt-0 min-w-[220px]">
+          <i class="fa-brands fa-whatsapp text-lg"></i> <span>Consultar por WhatsApp</span>
+        </button>
+      </div>
+    </section>
+
+    <section id="comodidades" class="max-w-7xl mx-auto px-4 md:px-8 py-16 scroll-mt-28">
+      <h3 class="text-3xl font-bold mb-8">Detalles Pensados para Ti.</h3>
+      
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-y-8">
+        <div class="flex items-center gap-3"><i class="fa-wifi fa-solid text-secundario text-xl w-6 text-center"></i><span class="font-medium">Wi-Fi Alta Velocidad</span></div>
+        <div class="flex items-center gap-3"><i class="fa-shower fa-solid text-secundario text-xl w-6 text-center"></i><span class="font-medium">1 Baño Completo</span></div>
+        <div class="flex items-center gap-3"><i class="fa-bed fa-solid text-secundario text-xl w-6 text-center"></i><span class="font-medium">2 Habitaciones</span></div>
+        <div class="flex items-center gap-3"><i class="fa-kitchen-set fa-solid text-secundario text-xl w-6 text-center"></i><span class="font-medium">Cocina Equipada</span></div>
+        
+        <div class="flex items-center gap-3"><i class="fa-tv fa-solid text-secundario text-xl w-6 text-center"></i><span class="font-medium">TV Smart</span></div>
+        <div class="flex items-center gap-3"><i class="fa-fan fa-solid text-secundario text-xl w-6 text-center"></i><span class="font-medium">Ventiladores</span></div>
+        <div class="flex items-center gap-3"><i class="fa-water-ladder fa-solid text-secundario text-xl w-6 text-center"></i><span class="font-medium">Pileta Exclusiva</span></div>
+        <div class="flex items-center gap-3"><i class="fa-car fa-solid text-secundario text-xl w-6 text-center"></i><span class="font-medium">Cochera (1 auto)</span></div>
+        
+        <div class="flex items-center gap-3"><i class="fa-snowflake fa-solid text-secundario text-xl w-6 text-center"></i><span class="font-medium">Aire Acondicionado</span></div>
+        <div class="flex items-center gap-3"><i class="fa-fire-burner fa-solid text-secundario text-xl w-6 text-center"></i><span class="font-medium">Parrilla / Asador</span></div>
+        <div class="flex items-center gap-3"><i class="fa-temperature-arrow-up fa-solid text-secundario text-xl w-6 text-center"></i><span class="font-medium">Calefacción</span></div>
+        <div class="flex items-center gap-3"><i class="fa-layer-group fa-solid text-secundario text-xl w-6 text-center"></i><span class="font-medium">Ropa de Cama</span></div>
+        
+        <div class="flex items-center gap-3"><i class="fa-mug-hot fa-solid text-secundario text-xl w-6 text-center"></i><span class="font-medium">Cafetera</span></div>
+        <div class="flex items-center gap-3"><i class="fa-shirt fa-solid text-secundario text-xl w-6 text-center"></i><span class="font-medium">Lavarropas</span></div>
+        <div class="flex items-center gap-3"><i class="fa-wine-glass fa-solid text-secundario text-xl w-6 text-center"></i><span class="font-medium">Vajilla Completa</span></div>
+        <div class="flex items-center gap-3"><i class="fa-pump-soap fa-solid text-secundario text-xl w-6 text-center"></i><span class="font-medium">Artículos de Baño</span></div>
+      </div>
+    </section>
+
+    <section id="resenas" class="py-16 scroll-mt-28">
+      <div class="max-w-7xl mx-auto px-4 md:px-8">
+        
+        <div class="p-6 bg-white rounded-xl shadow-lg border border-gray-200 mb-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          
+          <div class="flex items-center gap-6">
+            <span class="text-6xl font-extrabold text-[#111111]">4.8</span>
+            <div>
+              <span class="text-3xl font-bold text-[#111111] block mb-0.5">Excelente</span>
+              
+              <div class="relative flex text-xl text-gray-300">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                <div class="absolute top-0 left-0 flex text-yellow-400 overflow-hidden" style="width: 96%;">
+                  <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                </div>
+              </div>
+              
+              <span class="text-xs text-[#555555] font-medium tracking-wide">Basado en 27 reseñas de Google</span>
+            </div>
+          </div>
+
+          <div class="flex flex-col items-end gap-3 w-full md:w-auto">
+             <div class="flex items-center gap-5 mb-2">
+               <img src="https://trustindex.io/assets/images/logo/logo.svg" class="h-6">
+               <svg class="h-6 w-auto" viewBox="0 0 48 48">
+                <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"></path>
+                <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"></path>
+                <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"></path>
+                <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"></path>
+               </svg>
+             </div>
+             <a href="#" target="_blank" rel="noopener noreferrer" class="bg-[#007BFF] border border-blue-600 text-white hover:bg-blue-600 font-semibold py-2 px-6 rounded-lg shadow-sm transition-colors flex items-center gap-2 text-sm w-full md:w-auto justify-center">
+              Ver todas las reseñas <i class="fa-solid fa-arrow-up-right-from-square text-xs opacity-70"></i>
+             </a>
+          </div>
+
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          <article class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 border-t-4 border-t-[#00BFA5] relative flex flex-col gap-5 transition-colors duration-500">
+            
+            <div class="flex items-start justify-between gap-4">
+              <div class="flex items-center gap-3.5">
+                <img src="https://ui-avatars.com/api/?name=Maria+G&background=random&color=fff" alt="Usuario" class="w-11 h-11 rounded-full object-cover shadow-inner">
+                <div>
+                  <h4 class="font-bold text-[#111111] text-sm">María Laura G.</h4>
+                  <p class="text-xs text-[#00C853] font-medium flex items-center gap-1.5 leading-none mb-1">
+                    <i class="fa-solid fa-check-circle"></i> Verificado
+                  </p>
+                  <p class="text-xs text-[#555555] leading-none">Hace 2 semanas</p>
+                </div>
+              </div>
+              
+              <svg class="h-6 w-auto flex-shrink-0" viewBox="0 0 48 48">
+                <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"></path>
+                <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"></path>
+                <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"></path>
+                <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"></path>
+              </svg>
+            </div>
+
+            <div class="relative flex text-xl text-gray-300">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <div class="absolute top-0 left-0 flex text-yellow-400 overflow-hidden" style="width: 100%;">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+            </div>
+
+            <div>
+              <p class="font-bold text-sm text-[#111111] leading-snug mb-1">Un lugar superó nuestras expectativas</p>
+              <p class="font-light text-sm text-[#555555] leading-relaxed">
+                "La decoración es hermosa, súper limpio y la pileta es increíble para relajarse al atardecer."
+              </p>
+            </div>
+
+          </article>
+
+          <article class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 border-t-4 border-t-[#00BFA5] relative flex flex-col gap-5 transition-colors duration-500">
+            
+            <div class="flex items-start justify-between gap-4">
+              <div class="flex items-center gap-3.5">
+                <img src="https://ui-avatars.com/api/?name=Esteban+R&background=random&color=fff" alt="Usuario" class="w-11 h-11 rounded-full object-cover shadow-inner">
+                <div>
+                  <h4 class="font-bold text-[#111111] text-sm">Esteban R.</h4>
+                  <p class="text-xs text-[#00C853] font-medium flex items-center gap-1.5 leading-none mb-1">
+                    <i class="fa-solid fa-check-circle"></i> Verificado
+                  </p>
+                  <p class="text-xs text-[#555555] leading-none">Hace 1 mes</p>
+                </div>
+              </div>
+              
+              <svg class="h-6 w-auto flex-shrink-0" viewBox="0 0 48 48">
+                <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"></path>
+                <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"></path>
+                <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"></path>
+                <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"></path>
+              </svg>
+            </div>
+
+            <div class="relative flex text-xl text-gray-300">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <div class="absolute top-0 left-0 flex text-yellow-400 overflow-hidden" style="width: 100%;">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+            </div>
+
+            <div>
+              <p class="font-bold text-sm text-[#111111] leading-snug mb-1">Ubicación inmejorable, cerca de todo</p>
+              <p class="font-light text-sm text-[#555555] leading-relaxed">
+                "Súper tranquilo de noche. La atención fue excelente desde el primer mensaje de WhatsApp. Lo recomiendo totalmente."
+              </p>
+            </div>
+
+          </article>
+
+          <article class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 border-t-4 border-t-[#00BFA5] relative flex flex-col gap-5 transition-colors duration-500">
+            
+            <div class="flex items-start justify-between gap-4">
+              <div class="flex items-center gap-3.5">
+                <img src="https://ui-avatars.com/api/?name=Familia+Dominguez&background=random&color=fff" alt="Usuario" class="w-11 h-11 rounded-full object-cover shadow-inner">
+                <div>
+                  <h4 class="font-bold text-[#111111] text-sm">Familia Domínguez</h4>
+                  <p class="text-xs text-[#00C853] font-medium flex items-center gap-1.5 leading-none mb-1">
+                    <i class="fa-solid fa-check-circle"></i> Verificado
+                  </p>
+                  <p class="text-xs text-[#555555] leading-none">Hace 3 meses</p>
+                </div>
+              </div>
+              
+              <svg class="h-6 w-auto flex-shrink-0" viewBox="0 0 48 48">
+                <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"></path>
+                <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"></path>
+                <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"></path>
+                <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"></path>
+              </svg>
+            </div>
+
+            <div class="relative flex text-xl text-gray-300">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <div class="absolute top-0 left-0 flex text-yellow-400 overflow-hidden" style="width: 100%;">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              </div>
+            </div>
+
+            <div>
+              <p class="font-bold text-sm text-[#111111] leading-snug mb-1">Fuimos con los chicos y estuvimos comodísimos</p>
+              <p class="font-light text-sm text-[#555555] leading-relaxed">
+                "Las habitaciones son amplias y la cocina tiene de todo. ¡Volveremos seguro para las próximas vacaciones!"
+              </p>
+            </div>
+
+          </article>
+
+        </div>
+        
+      </div>
+    </section>
+
+    <section id="ubicacion" class="max-w-7xl mx-auto px-4 md:px-8 pb-20 pt-8 scroll-mt-28">
+      <h3 class="text-3xl font-bold mb-8">En el Centro de Todo, Lejos del Ruido.</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <div>
+          <p class="text-lg mb-6">{{TEXTO_UBICACION}}</p>
+          <ul class="space-y-4">
+            <li class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-secundario/10 flex items-center justify-center text-secundario"><i class="fa-utensils fa-solid"></i></div><span>Zona Gastronómica cercana</span></li>
+            <li class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-secundario/10 flex items-center justify-center text-secundario"><i class="fa-store fa-solid"></i></div><span>Comercios a pocos metros</span></li>
+            <li class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-secundario/10 flex items-center justify-center text-secundario"><i class="fa-tree fa-solid"></i></div><span>Espacios verdes próximos</span></li>
+          </ul>
+        </div>
+        <div class="h-80 w-full rounded-2xl overflow-hidden shadow-lg border border-primario/10 bg-tarjeta transition-colors duration-500">
+          <iframe 
+            src="{{LINK_MAPA}}" 
+            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-footer text-white py-12 md:py-16 transition-colors duration-500">
+    <div class="max-w-7xl mx-auto px-4 md:px-8">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+        <div>
+          <h4 class="text-2xl font-bold mb-2">{{NOMBRE_PROYECTO}}</h4>
+          <p class="text-white/70 text-sm">Reserva directo · Mejor tarifa garantizada</p>
+        </div>
+        <ul class="flex gap-6 text-sm font-medium text-white/80">
+          <li><a href="#" class="hover:text-secundario transition-colors">Políticas</a></li>
+          <li><a href="#" class="hover:text-secundario transition-colors">Reglas</a></li>
+          <li><a href="#" class="hover:text-secundario transition-colors">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="mt-12 pt-8 border-t border-white/10 flex flex-col items-center justify-center text-sm text-white/40">
+        <p>© 2026 {{NOMBRE_PROYECTO}}. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" onclick="openFloatingWhatsApp(event)" class="fixed bottom-6 right-6 z-50 animate-latido bg-whatsapp text-white w-14 h-14 rounded-full flex items-center justify-center transition-all group" aria-label="Chat en WhatsApp">
+    <i class="fa-brands fa-whatsapp text-3xl"></i>
+    <span class="absolute -top-1 -right-1 bg-red-500 text-white text-[11px] font-bold w-[22px] h-[22px] flex items-center justify-center rounded-full border-2 border-tarjeta shadow-sm">1</span>
+    <span class="absolute right-full mr-4 bg-tarjeta text-primario text-sm font-medium px-4 py-2 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none border border-primario/10">
+      ¿Dudas sobre tus fechas? ¡Hablemos!
+    </span>
+  </a>
+
+  <div id="lightbox" class="fixed inset-0 z-[100] bg-black/95 hidden flex items-center justify-center opacity-0 transition-opacity duration-300">
+    <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white/70 hover:text-white text-3xl transition z-50"><i class="fa-xmark fa-solid"></i></button>
+    <button onclick="changeLightboxImage(-1)" class="absolute left-4 md:left-8 text-white/50 hover:text-white text-4xl transition z-50"><i class="fa-chevron-left fa-solid"></i></button>
+    <button onclick="changeLightboxImage(1)" class="absolute right-4 md:right-8 text-white/50 hover:text-white text-4xl transition z-50"><i class="fa-chevron-right fa-solid"></i></button>
+    <img id="lightbox-img" src="" alt="Imagen ampliada" class="max-w-[90vw] max-h-[90vh] object-contain select-none">
+    <div class="absolute bottom-6 text-white/70 tracking-widest text-sm">
+      <span id="lightbox-counter">1</span> / <span id="lightbox-total">7</span>
+    </div>
+  </div>
+
+  <script>
+    // ==========================================
+    // SISTEMA DE TEMAS DE LA PLANTILLA GLOBAL (JS)
+    // ==========================================
+    function setTheme(themeName) {
+      document.documentElement.setAttribute('data-theme', themeName);
+      localStorage.setItem('oasis-theme', themeName);
+      
+      const inputs = document.querySelectorAll('input[type="date"]');
+      if (themeName === 'noche') {
+        inputs.forEach(input => input.style.colorScheme = 'dark');
+      } else {
+        inputs.forEach(input => input.style.colorScheme = 'light');
+      }
+    }
+
+    (function() {
+      const savedTheme = localStorage.getItem('oasis-theme') || 'violeta';
+      setTheme(savedTheme);
+    })();
+
+
+    // =========================================================================
+    // ✏️ EDITAR AQUÍ: NÚMERO DE WHATSAPP (JS)
+    // =========================================================================
+    const WHATSAPP_NUMBER = '{{TELEFONO_WHATSAPP}}'; 
+
+    let adults = 2; 
+    let children = 0;
+
+    const guestsBtn = document.getElementById('guests-btn');
+    const guestsPopover = document.getElementById('guests-popover');
+    const guestsSummary = document.getElementById('guests-summary');
+    const adultsCountEl = document.getElementById('adults-count');
+    const childrenCountEl = document.getElementById('children-count');
+
+    updateGuests('init', 0);
+
+    guestsBtn.addEventListener('click', (e) => {
+      guestsPopover.classList.toggle('hidden');
+      e.stopPropagation();
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!guestsBtn.contains(e.target) && !guestsPopover.contains(e.target)) {
+        guestsPopover.classList.add('hidden');
+      }
+    });
+
+    function updateGuests(type, change) {
+      if (type === 'adults') {
+        const newAdults = adults + change;
+        if (newAdults >= 1 && newAdults <= 6) adults = newAdults;
+      } else if (type === 'children') {
+        const newChildren = children + change;
+        if (newChildren >= 0 && newChildren <= 4) children = newChildren;
+      }
+      
+      adultsCountEl.innerText = adults;
+      childrenCountEl.innerText = children;
+      
+      const textAdults = adults === 1 ? 'Adulto' : 'Adultos';
+      const textChildren = children === 1 ? 'Niño' : 'Niños';
+      guestsSummary.innerText = `${adults} ${textAdults} - ${children} ${textChildren}`;
+    }
+
+    // =========================================================================
+    // ✏️ EDITAR AQUÍ: MENSAJES DE WHATSAPP PREDETERMINADOS
+    // =========================================================================
+    function initiateGeneralWhatsAppQuery() {
+      const greeting = "Hola, quisiera consultar sobre {{NOMBRE_PROYECTO}}";
+      const encodedGreeting = encodeURIComponent(greeting);
+      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodedGreeting}`, '_blank');
+    }
+
+    function openFloatingWhatsApp(e) {
+      e.preventDefault();
+      const greeting = "Hola, quisiera consultar sobre {{NOMBRE_PROYECTO}}";
+      const encodedGreeting = encodeURIComponent(greeting);
+      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodedGreeting}`, '_blank');
+    }
+
+    // =========================================================================
+    // ✏️ EDITAR AQUÍ: LINKS DE LAS IMÁGENES DEL LIGHTBOX
+    // =========================================================================
+    const images = [
+      "{{FOTO_1}}",
+      "{{FOTO_2}}",
+      "{{FOTO_3}}",
+      "{{FOTO_4}}",
+      "{{FOTO_5}}",
+      "{{FOTO_6}}",
+      "{{FOTO_7}}"
+    ];
+
+    let currentLightboxIndex = 0;
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCounter = document.getElementById('lightbox-counter');
+    const lightboxTotal = document.getElementById('lightbox-total');
+
+    lightboxTotal.innerText = images.length;
+
+    function openLightbox(index) {
+      currentLightboxIndex = index;
+      updateLightboxContent();
+      lightbox.classList.remove('hidden');
+      setTimeout(() => {
+        lightbox.classList.remove('opacity-0');
+        lightbox.classList.add('opacity-100');
+      }, 10);
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('opacity-100');
+      lightbox.classList.add('opacity-0');
+      setTimeout(() => {
+        lightbox.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+      }, 300);
+    }
+
+    function changeLightboxImage(direction) {
+      currentLightboxIndex += direction;
+      if (currentLightboxIndex < 0) currentLightboxIndex = images.length - 1;
+      if (currentLightboxIndex >= images.length) currentLightboxIndex = 0;
+      updateLightboxContent();
+    }
+
+    function updateLightboxContent() {
+      lightboxImg.src = images[currentLightboxIndex];
+      lightboxCounter.innerText = currentLightboxIndex + 1;
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('hidden')) {
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowRight') changeLightboxImage(1);
+        if (e.key === 'ArrowLeft') changeLightboxImage(-1);
+      }
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const today = new Date();
+      const tomorrow = new Date(today);
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      
+      document.getElementById('arrival').min = today.toISOString().split('T')[0];
+      document.getElementById('departure').min = tomorrow.toISOString().split('T')[0];
+    });
+  </script>
+</body>
+</html>
