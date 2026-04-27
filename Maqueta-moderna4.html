@@ -30,13 +30,6 @@
           },
           animation: {
             'latido': 'latido 2s infinite',
-          },
-          keyframes: {
-            latido: {
-              '0%': { transform: 'scale(1)', boxShadow: '0 0 0 0 rgba(37, 211, 102, 0.7)' },
-              '50%': { transform: 'scale(1.05)', boxShadow: '0 0 0 15px rgba(37, 211, 102, 0)' },
-              '100%': { transform: 'scale(1)', boxShadow: '0 0 0 0 rgba(37, 211, 102, 0)' }
-            }
           }
         }
       }
@@ -46,34 +39,30 @@
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-    /* =========================================================
-       SISTEMA DE TEMAS (Dynamic Theming)
-       ========================================================= */
+    /* SISTEMA DE TEMAS */
     :root {
-      --color-fondo: 246 242 255;      /* #F6F2FF */
-      --color-encabezado: 236 230 245; /* #ECE6F5 */
-      --color-tarjeta: 255 255 255;    /* Blanco */
-      --color-primario: 73 29 139;     /* #491D8B */
-      --color-secundario: 0 157 154;   /* #009D9A */
-      --color-footer: 36 10 74;        /* #240A4A */
+      --color-fondo: 246 242 255;
+      --color-encabezado: 236 230 245;
+      --color-tarjeta: 255 255 255;
+      --color-primario: 73 29 139;
+      --color-secundario: 0 157 154;
+      --color-footer: 36 10 74;
     }
-
     [data-theme="marron"] {
-      --color-fondo: 250 244 235;      /* Beige Suave */
-      --color-encabezado: 239 232 221; /* Beige un poco más oscuro */
-      --color-tarjeta: 255 255 255;    /* Blanco */
-      --color-primario: 90 59 34;      /* Marrón Oscuro */
-      --color-secundario: 107 142 35;  /* Verde Oliva */
-      --color-footer: 54 34 17;        /* Marrón Ultra Oscuro */
+      --color-fondo: 250 244 235;
+      --color-encabezado: 239 232 221;
+      --color-tarjeta: 255 255 255;
+      --color-primario: 90 59 34;
+      --color-secundario: 107 142 35;
+      --color-footer: 54 34 17;
     }
-
     [data-theme="noche"] {
-      --color-fondo: 18 18 18;         /* Gris Grafito Oscuro */
-      --color-encabezado: 30 30 30;    /* Gris un poco más claro */
-      --color-tarjeta: 36 36 36;       /* Gris Tarjetas */
-      --color-primario: 243 244 246;   /* Blanco Humo (Para Textos) */
-      --color-secundario: 0 173 181;   /* Cyan Brillante */
-      --color-footer: 0 0 0;           /* Negro Puro */
+      --color-fondo: 18 18 18;
+      --color-encabezado: 30 30 30;
+      --color-tarjeta: 36 36 36;
+      --color-primario: 243 244 246;
+      --color-secundario: 0 173 181;
+      --color-footer: 0 0 0;
     }
   </style>
 </head>
@@ -93,12 +82,11 @@
         </nav>
 
         <div class="flex items-center gap-2 pl-4 border-l border-primario/20">
-          <button onclick="setTheme('violeta')" class="w-5 h-5 rounded-full bg-[#491D8B] border border-white/20 shadow-sm hover:scale-110 transition-transform" title="Tema Violeta"></button>
-          <button onclick="setTheme('marron')" class="w-5 h-5 rounded-full bg-[#5A3B22] border border-white/20 shadow-sm hover:scale-110 transition-transform" title="Tema Tierra"></button>
-          <button onclick="setTheme('noche')" class="w-5 h-5 rounded-full bg-[#121212] border border-gray-400 shadow-sm hover:scale-110 transition-transform" title="Tema Noche"></button>
+          <button onclick="setTheme('violeta')" class="w-5 h-5 rounded-full bg-[#491D8B] border border-white/20 shadow-sm hover:scale-110 transition-transform"></button>
+          <button onclick="setTheme('marron')" class="w-5 h-5 rounded-full bg-[#5A3B22] border border-white/20 shadow-sm hover:scale-110 transition-transform"></button>
+          <button onclick="setTheme('noche')" class="w-5 h-5 rounded-full bg-[#121212] border border-gray-400 shadow-sm hover:scale-110 transition-transform"></button>
         </div>
       </div>
-
     </div>
   </header>
 
@@ -107,7 +95,7 @@
       
       <div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-3 h-[300px] md:h-[500px] rounded-2xl overflow-hidden shadow-lg cursor-pointer" id="gallery-grid">
         <div class="col-span-1 md:col-span-2 md:row-span-2 relative group overflow-hidden" onclick="openLightbox(0)">
-          <img src="{{FOTO_1}}" alt="Sala principal" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+          <img src="{{FOTO_1}}" alt="Principal" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
         </div>
         <div class="hidden md:block col-span-1 row-span-1 relative group overflow-hidden" onclick="openLightbox(1)">
           <img src="{{FOTO_2}}" alt="Habitación" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
@@ -137,14 +125,14 @@
         
         <div class="flex flex-col md:flex-row w-full gap-3 md:gap-4 relative">
           <div class="flex-1">
-            <label for="arrival" class="block text-[11px] font-semibold text-primario/60 uppercase tracking-widest mb-1.5 ml-1">Llegada</label>
+            <label class="block text-[11px] font-semibold text-primario/60 uppercase tracking-widest mb-1.5 ml-1">Llegada</label>
             <div class="bg-tarjeta h-12 px-3 rounded-lg border border-primario/20 shadow-sm focus-within:border-secundario focus-within:ring-1 focus-within:ring-secundario transition-all flex items-center">
               <input type="date" id="arrival" class="w-full text-sm font-medium outline-none text-primario bg-transparent cursor-pointer color-scheme-auto">
             </div>
           </div>
           
           <div class="flex-1">
-            <label for="departure" class="block text-[11px] font-semibold text-primario/60 uppercase tracking-widest mb-1.5 ml-1">Salida</label>
+            <label class="block text-[11px] font-semibold text-primario/60 uppercase tracking-widest mb-1.5 ml-1">Salida</label>
             <div class="bg-tarjeta h-12 px-3 rounded-lg border border-primario/20 shadow-sm focus-within:border-secundario focus-within:ring-1 focus-within:ring-secundario transition-all flex items-center">
               <input type="date" id="departure" class="w-full text-sm font-medium outline-none text-primario bg-transparent cursor-pointer color-scheme-auto">
             </div>
@@ -162,267 +150,17 @@
             <div class="flex justify-between items-center mb-6">
               <p class="font-semibold text-primario text-lg">Adultos</p>
               <div class="flex items-center gap-3">
-                <button class="w-8 h-8 rounded-full border border-secundario text-secundario flex items-center justify-center hover:bg-secundario hover:text-white transition" onclick="updateGuests('adults', -1)"><i class="fa-minus fa-solid text-xs"></i></button>
+                <button class="w-8 h-8 rounded-full border border-secundario text-secundario flex items-center justify-center hover:bg-secundario hover:text-white" onclick="updateGuests('adults', -1)"><i class="fa-minus fa-solid text-xs"></i></button>
                 <span id="adults-count" class="font-medium w-4 text-center text-lg">1</span>
-                <button class="w-8 h-8 rounded-full border border-secundario text-secundario flex items-center justify-center hover:bg-secundario hover:text-white transition" onclick="updateGuests('adults', 1)"><i class="fa-plus fa-solid text-xs"></i></button>
-              </div>
-            </div>
-            <div class="flex justify-between items-center">
-              <p class="font-semibold text-primario text-lg">Niños</p>Entendido perfectamente, arquitecto. Quedó clarísimo lo que buscás: querés un look **Google 100% nativo**, sin ninguna mensualidad ni plataforma intermediaria.
-
-Acabo de re-diseñar toda la sección de reseñas para clonar exactamente lo que me pasaste en las capturas. Aquí tienes el resumen de los cambios aplicados:
-
-1.  **Nuevo Encabezado de Google Reviews:** Eliminé el bloque de Trustindex anterior. Creé la estructura de tu captura `image_1d4c7c.png`. Ahora tenés: Logo de Google a color, 5 estrellas amarillas nativas, el texto "Excelente", el puntaje general (ej. 4.9) y la cantidad de reseñas (ej. 14 reseñas), todo alineado y limpio.
-2.  **Eliminación de línea verde:** Borré el borde superior turquesa/verde de las tarjetas.
-3.  **Estrellas Google Nativas:** Reemplacé el diseño de estrellas anterior por las estrellas amarillas de Google (`#FBBC05`) de la captura `image_1d4ce1.png`.
-4.  **Verificado Azulito en nueva ubicación:** Creé el escudito azul con tilde blanco de verificado clónico de tu captura `image_1d4cba.png`. Lo ubiqué **exactamente al lado de las estrellas** dentro de la tarjeta, tal como pediste.
-5.  **Look de Tarjeta Limpio:** Las tarjetas ahora tienen fondo blanco fijo, bordes redondeados y una sombra suave, copiando la estética de Google.
-6.  **Fotos de perfil:** Mantuve el espacio para que pegues las fotos reales de tus clientes o dejes el avatar genérico.
-
-Aquí tenés el código de tu Plantilla Maestra Premium con el **Google Native Review System** 100% hardcoded (hecho a mano), libre de suscripciones y con el look exacto que me exigiste:
-
-```html
-<!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>{{NOMBRE_PROYECTO}} | Alquiler Vacacional</title>
-  
-  <link rel="preconnect" href="[https://fonts.googleapis.com](https://fonts.googleapis.com)">
-  <link rel="preconnect" href="[https://fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin>
-  <link href="[https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap](https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap)" rel="stylesheet">
-  <link rel="stylesheet" href="[https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css)">
-
-  <script src="[https://cdn.tailwindcss.com](https://cdn.tailwindcss.com)"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            fondo: 'rgb(var(--color-fondo) / <alpha-value>)',
-            encabezado: 'rgb(var(--color-encabezado) / <alpha-value>)',
-            tarjeta: 'rgb(var(--color-tarjeta) / <alpha-value>)',
-            primario: 'rgb(var(--color-primario) / <alpha-value>)',
-            secundario: 'rgb(var(--color-secundario) / <alpha-value>)',
-            whatsapp: '#25D366',
-            footer: 'rgb(var(--color-footer) / <alpha-value>)'
-          },
-          fontFamily: {
-            outfit: ['Outfit', 'sans-serif']
-          },
-          animation: {
-            'latido': 'latido 2s infinite',
-          },
-          keyframes: {
-            latido: {
-              '0%': { transform: 'scale(1)', boxShadow: '0 0 0 0 rgba(37, 211, 102, 0.7)' },
-              '50%': { transform: 'scale(1.05)', boxShadow: '0 0 0 15px rgba(37, 211, 102, 0)' },
-              '100%': { transform: 'scale(1)', boxShadow: '0 0 0 0 rgba(37, 211, 102, 0)' }
-            }
-          }
-        }
-      }
-    }
-  </script>
-  <style>
-    .no-scrollbar::-webkit-scrollbar { display: none; }
-    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-
-    /* =========================================================
-       SISTEMA DE TEMAS (Dynamic Theming)
-       ========================================================= */
-    :root {
-      --color-fondo: 246 242 255;      /* #F6F2FF */
-      --color-encabezado: 236 230 245; /* #ECE6F5 */
-      --color-tarjeta: 255 255 255;    /* Blanco */
-      --color-primario: 73 29 139;     /* #491D8B */
-      --color-secundario: 0 157 154;   /* #009D9A */
-      --color-footer: 36 10 74;        /* #240A4A */
-    }
-
-    [data-theme="marron"] {
-      --color-fondo: 250 244 235;      /* Beige Suave */
-      --color-encabezado: 239 232 221; /* Beige un poco más oscuro */
-      --color-tarjeta: 255 255 255;    /* Blanco */
-      --color-primario: 90 59 34;      /* Marrón Oscuro */
-      --color-secundario: 107 142 35;  /* Verde Oliva```html
-<!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>{{NOMBRE_PROYECTO}} | Alquiler Vacacional</title>
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            fondo: 'rgb(var(--color-fondo) / <alpha-value>)',
-            encabezado: 'rgb(var(--color-encabezado) / <alpha-value>)',
-            tarjeta: 'rgb(var(--color-tarjeta) / <alpha-value>)',
-            primario: 'rgb(var(--color-primario) / <alpha-value>)',
-            secundario: 'rgb(var(--color-secundario) / <alpha-value>)',
-            whatsapp: '#25D366',
-            footer: 'rgb(var(--color-footer) / <alpha-value>)'
-          },
-          fontFamily: {
-            outfit: ['Outfit', 'sans-serif']
-          },
-          animation: {
-            'latido': 'latido 2s infinite',
-          },
-          keyframes: {
-            latido: {
-              '0%': { transform: 'scale(1)', boxShadow: '0 0 0 0 rgba(37, 211, 102, 0.7)' },
-              '50%': { transform: 'scale(1.05)', boxShadow: '0 0 0 15px rgba(37, 211, 102, 0)' },
-              '100%': { transform: 'scale(1)', boxShadow: '0 0 0 0 rgba(37, 211, 102, 0)' }
-            }
-          }
-        }
-      }
-    }
-  </script>
-  <style>
-    .no-scrollbar::-webkit-scrollbar { display: none; }
-    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-
-    /* =========================================================
-       SISTEMA DE TEMAS DE LA PLANTILLA GLOBAL (sigue funcionando)
-       ========================================================= */
-    :root {
-      --color-fondo: 246 242 255;      /* #F6F2FF */
-      --color-encabezado: 236 230 245; /* #ECE6F5 */
-      --color-tarjeta: 255 255 255;    /* Blanco */
-      --color-primario: 73 29 139;     /* #491D8B */
-      --color-secundario: 0 157 154;   /* #009D9A */
-      --color-footer: 36 10 74;        /* #240A4A */
-    }
-
-    [data-theme="marron"] {
-      --color-fondo: 250 244 235;      /* Beige Suave */
-      --color-encabezado: 239 232 221; /* Beige un poco más oscuro */
-      --color-tarjeta: 255 255 255;    /* Blanco */
-      --color-primario: 90 59 34;      /* Marrón Oscuro */
-      --color-secundario: 107 142 35;  /* Verde Oliva */
-      --color-footer: 54 34 17;        /* Marrón Ultra Oscuro */
-    }
-
-    [data-theme="noche"] {
-      --color-fondo: 18 18 18;         /* Gris Grafito Oscuro */
-      --color-encabezado: 30 30 30;    /* Gris un poco más claro */
-      --color-tarjeta: 36 36 36;       /* Gris Tarjetas */
-      --color-primario: 243 244 246;   /* Blanco Humo (Para Textos) */
-      --color-secundario: 0 173 181;   /* Cyan Brillante */
-      --color-footer: 0 0 0;           /* Negro Puro */
-    }
-  </style>
-</head>
-<body class="bg-fondo text-primario font-outfit relative transition-colors duration-500">
-
-  <header class="w-full bg-encabezado z-30 relative transition-colors duration-500">
-    <div class="max-w-7xl mx-auto px-4 md:px-8 py-4 md:py-5 flex justify-between items-center">
-      
-      <h1 class="text-xl md:text-2xl font-bold tracking-tight text-primario">{{NOMBRE_PROYECTO}}</h1>
-      
-      <div class="flex items-center gap-6">
-        <nav class="hidden md:flex gap-8 text-sm font-semibold text-primario/80">
-          <a href="#espacio" class="hover:text-secundario transition-colors">El Espacio</a>
-          <a href="#comodidades" class="hover:text-secundario transition-colors">Comodidades</a>
-          <a href="#resenas" class="hover:text-secundario transition-colors">Reseñas</a>
-          <a href="#ubicacion" class="hover:text-secundario transition-colors">Ubicación</a>
-        </nav>
-
-        <div class="flex items-center gap-2 pl-4 border-l border-primario/20">
-          <button onclick="setTheme('violeta')" class="w-5 h-5 rounded-full bg-[#491D8B] border border-white/20 shadow-sm hover:scale-110 transition-transform" title="Tema Violeta"></button>
-          <button onclick="setTheme('marron')" class="w-5 h-5 rounded-full bg-[#5A3B22] border border-white/20 shadow-sm hover:scale-110 transition-transform" title="Tema Tierra"></button>
-          <button onclick="setTheme('noche')" class="w-5 h-5 rounded-full bg-[#121212] border border-gray-400 shadow-sm hover:scale-110 transition-transform" title="Tema Noche"></button>
-        </div>
-      </div>
-
-    </div>
-  </header>
-
-  <main>
-    <section id="espacio" class="max-w-7xl mx-auto px-4 md:px-8 pt-8 md:pt-12 pb-8 scroll-mt-8">
-      
-      <div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-3 h-[300px] md:h-[500px] rounded-2xl overflow-hidden shadow-lg cursor-pointer" id="gallery-grid">
-        <div class="col-span-1 md:col-span-2 md:row-span-2 relative group overflow-hidden" onclick="openLightbox(0)">
-          <img src="{{FOTO_1}}" alt="Sala principal" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-        </div>
-        <div class="hidden md:block col-span-1 row-span-1 relative group overflow-hidden" onclick="openLightbox(1)">
-          <img src="{{FOTO_2}}" alt="Habitación" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-        </div>
-        <div class="hidden md:block col-span-1 row-span-1 relative group overflow-hidden" onclick="openLightbox(2)">
-          <img src="{{FOTO_3}}" alt="Baño" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-        </div>
-        <div class="hidden md:block col-span-1 row-span-1 relative group overflow-hidden" onclick="openLightbox(3)">
-          <img src="{{FOTO_4}}" alt="Cocina" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-        </div>
-        <div class="hidden md:block col-span-1 row-span-1 relative group overflow-hidden" onclick="openLightbox(4)">
-          <img src="{{FOTO_5}}" alt="Exterior" class="w-full h-full object-cover">
-          <div class="absolute inset-0 bg-primario/60 flex items-center justify-center transition-colors duration-300 group-hover:bg-primario/80">
-            <span class="text-white font-semibold text-lg flex items-center gap-2"><i class="fa-images fa-solid"></i> Ver todas las fotos</span>
-          </div>
-        </div>
-      </div>
-      
-      <div class="max-w-3xl mt-8 hidden md:block">
-        <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">{{TITULO_HERO}}</h2>
-        <p class="text-lg md:text-xl font-light opacity-90 text-primario/80">{{DESCRIPCION_HERO}}</p>
-      </div>
-    </section>
-
-    <section class="sticky top-0 z-40 bg-fondo shadow-md py-4 px-4 border-b border-primario/5 transition-colors duration-500">
-      <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-end gap-3 md:gap-4">
-        
-        <div class="flex flex-col md:flex-row w-full gap-3 md:gap-4 relative">
-          <div class="flex-1">
-            <label for="arrival" class="block text-[11px] font-semibold text-primario/60 uppercase tracking-widest mb-1.5 ml-1">Llegada</label>
-            <div class="bg-tarjeta h-12 px-3 rounded-lg border border-primario/20 shadow-sm focus-within:border-secundario focus-within:ring-1 focus-within:ring-secundario transition-all flex items-center">
-              <input type="date" id="arrival" class="w-full text-sm font-medium outline-none text-primario bg-transparent cursor-pointer color-scheme-auto">
-            </div>
-          </div>
-          
-          <div class="flex-1">
-            <label for="departure" class="block text-[11px] font-semibold text-primario/60 uppercase tracking-widest mb-1.5 ml-1">Salida</label>
-            <div class="bg-tarjeta h-12 px-3 rounded-lg border border-primario/20 shadow-sm focus-within:border-secundario focus-within:ring-1 focus-within:ring-secundario transition-all flex items-center">
-              <input type="date" id="departure" class="w-full text-sm font-medium outline-none text-primario bg-transparent cursor-pointer color-scheme-auto">
-            </div>
-          </div>
-
-          <div class="flex-1 relative" id="guests-btn">
-            <label class="block text-[11px] font-semibold text-primario/60 uppercase tracking-widest mb-1.5 ml-1 cursor-pointer">Huéspedes</label>
-            <div class="bg-tarjeta h-12 px-3 rounded-lg border border-primario/20 shadow-sm hover:border-secundario transition-all flex items-center justify-between cursor-pointer">
-              <span id="guests-summary" class="text-sm font-medium text-primario">1 Adulto - 0 Niños</span>
-              <i class="fa-solid fa-chevron-down text-xs text-primario/40"></i>
-            </div>
-          </div>
-
-          <div id="guests-popover" class="hidden absolute top-[calc(100%+0.5rem)] left-0 md:left-auto md:right-0 w-full md:w-64 bg-tarjeta rounded-xl shadow-xl border border-primario/10 p-5 z-50">
-            <div class="flex justify-between items-center mb-6">
-              <p class="font-semibold text-primario text-lg">Adultos</p>
-              <div class="flex items-center gap-3">
-                <button class="w-8 h-8 rounded-full border border-secundario text-secundario flex items-center justify-center hover:bg-secundario hover:text-white transition" onclick="updateGuests('adults', -1)"><i class="fa-minus fa-solid text-xs"></i></button>
-                <span id="adults-count" class="font-medium w-4 text-center text-lg">1</span>
-                <button class="w-8 h-8 rounded-full border border-secundario text-secundario flex items-center justify-center hover:bg-secundario hover:text-white transition" onclick="updateGuests('adults', 1)"><i class="fa-plus fa-solid text-xs"></i></button>
+                <button class="w-8 h-8 rounded-full border border-secundario text-secundario flex items-center justify-center hover:bg-secundario hover:text-white" onclick="updateGuests('adults', 1)"><i class="fa-plus fa-solid text-xs"></i></button>
               </div>
             </div>
             <div class="flex justify-between items-center">
               <p class="font-semibold text-primario text-lg">Niños</p>
               <div class="flex items-center gap-3">
-                <button class="w-8 h-8 rounded-full border border-secundario text-secundario flex items-center justify-center hover:bg-secundario hover:text-white transition" onclick="updateGuests('children', -1)"><i class="fa-minus fa-solid text-xs"></i></button>
+                <button class="w-8 h-8 rounded-full border border-secundario text-secundario flex items-center justify-center hover:bg-secundario hover:text-white" onclick="updateGuests('children', -1)"><i class="fa-minus fa-solid text-xs"></i></button>
                 <span id="children-count" class="font-medium w-4 text-center text-lg">0</span>
-                <button class="w-8 h-8 rounded-full border border-secundario text-secundario flex items-center justify-center hover:bg-secundario hover:text-white transition" onclick="updateGuests('children', 1)"><i class="fa-plus fa-solid text-xs"></i></button>
+                <button class="w-8 h-8 rounded-full border border-secundario text-secundario flex items-center justify-center hover:bg-secundario hover:text-white" onclick="updateGuests('children', 1)"><i class="fa-plus fa-solid text-xs"></i></button>
               </div>
             </div>
           </div>
@@ -436,23 +174,19 @@ Aquí tenés el código de tu Plantilla Maestra Premium con el **Google Native R
 
     <section id="comodidades" class="max-w-7xl mx-auto px-4 md:px-8 py-16 scroll-mt-28">
       <h3 class="text-3xl font-bold mb-8">Detalles Pensados para Ti.</h3>
-      
       <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-y-8">
         <div class="flex items-center gap-3"><i class="fa-wifi fa-solid text-secundario text-xl w-6 text-center"></i><span class="font-medium">Wi-Fi Alta Velocidad</span></div>
         <div class="flex items-center gap-3"><i class="fa-shower fa-solid text-secundario text-xl w-6 text-center"></i><span class="font-medium">1 Baño Completo</span></div>
         <div class="flex items-center gap-3"><i class="fa-bed fa-solid text-secundario text-xl w-6 text-center"></i><span class="font-medium">2 Habitaciones</span></div>
         <div class="flex items-center gap-3"><i class="fa-kitchen-set fa-solid text-secundario text-xl w-6 text-center"></i><span class="font-medium">Cocina Equipada</span></div>
-        
         <div class="flex items-center gap-3"><i class="fa-tv fa-solid text-secundario text-xl w-6 text-center"></i><span class="font-medium">TV Smart</span></div>
         <div class="flex items-center gap-3"><i class="fa-fan fa-solid text-secundario text-xl w-6 text-center"></i><span class="font-medium">Ventiladores</span></div>
         <div class="flex items-center gap-3"><i class="fa-water-ladder fa-solid text-secundario text-xl w-6 text-center"></i><span class="font-medium">Pileta Exclusiva</span></div>
         <div class="flex items-center gap-3"><i class="fa-car fa-solid text-secundario text-xl w-6 text-center"></i><span class="font-medium">Cochera (1 auto)</span></div>
-        
         <div class="flex items-center gap-3"><i class="fa-snowflake fa-solid text-secundario text-xl w-6 text-center"></i><span class="font-medium">Aire Acondicionado</span></div>
         <div class="flex items-center gap-3"><i class="fa-fire-burner fa-solid text-secundario text-xl w-6 text-center"></i><span class="font-medium">Parrilla / Asador</span></div>
         <div class="flex items-center gap-3"><i class="fa-temperature-arrow-up fa-solid text-secundario text-xl w-6 text-center"></i><span class="font-medium">Calefacción</span></div>
         <div class="flex items-center gap-3"><i class="fa-layer-group fa-solid text-secundario text-xl w-6 text-center"></i><span class="font-medium">Ropa de Cama</span></div>
-        
         <div class="flex items-center gap-3"><i class="fa-mug-hot fa-solid text-secundario text-xl w-6 text-center"></i><span class="font-medium">Cafetera</span></div>
         <div class="flex items-center gap-3"><i class="fa-shirt fa-solid text-secundario text-xl w-6 text-center"></i><span class="font-medium">Lavarropas</span></div>
         <div class="flex items-center gap-3"><i class="fa-wine-glass fa-solid text-secundario text-xl w-6 text-center"></i><span class="font-medium">Vajilla Completa</span></div>
@@ -494,12 +228,11 @@ Aquí tenés el código de tu Plantilla Maestra Premium con el **Google Native R
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           
           <article class="bg-tarjeta p-6 rounded-2xl shadow-sm border border-primario/10 flex flex-col gap-5 transition-colors duration-500">
-            
             <div class="flex items-center gap-4">
               <img src="https://ui-avatars.com/api/?name=Maria+G&background=random&color=fff" alt="Usuario" class="w-11 h-11 rounded-full object-cover shadow-inner">
               <div>
                 <h4 class="font-bold text-primario text-sm">María Laura G.</h4>
-                <p class="text-xs text-primario/60leading-none">Hace 2 semanas</p>
+                <p class="text-xs text-primario/60 leading-none mt-1">Hace 2 semanas</p>
               </div>
             </div>
 
@@ -507,7 +240,6 @@ Aquí tenés el código de tu Plantilla Maestra Premium con el **Google Native R
               <div class="flex gap-0.5 text-[#FBBC05] text-sm">
                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
               </div>
-              
               <div class="flex items-center gap-1.5 text-xs font-medium text-primario/70">
                 <span class="w-4 h-4 bg-[#1A73E8] flex-shrink-0 rounded-full flex items-center justify-center text-white text-[9px]">
                   <i class="fa-solid fa-check"></i>
@@ -517,20 +249,16 @@ Aquí tenés el código de tu Plantilla Maestra Premium con el **Google Native R
             </div>
 
             <div class="text-sm text-primario/90 leading-relaxed font-light">
-              <p>
-                "El lugar superó nuestras expectativas. La decoración es hermosa, súper limpio y la pileta es increíble para relajarse al atardecer."
-              </p>
+              <p>"El lugar superó nuestras expectativas. La decoración es hermosa, súper limpio y la pileta es increíble para relajarse al atardecer."</p>
             </div>
-
           </article>
 
           <article class="bg-tarjeta p-6 rounded-2xl shadow-sm border border-primario/10 flex flex-col gap-5 transition-colors duration-500">
-            
             <div class="flex items-center gap-4">
               <img src="https://ui-avatars.com/api/?name=Esteban+R&background=random&color=fff" alt="Usuario" class="w-11 h-11 rounded-full object-cover shadow-inner">
               <div>
                 <h4 class="font-bold text-primario text-sm">Esteban R.</h4>
-                <p class="text-xs text-primario/60leading-none">Hace 1 mes</p>
+                <p class="text-xs text-primario/60 leading-none mt-1">Hace 1 mes</p>
               </div>
             </div>
 
@@ -547,20 +275,16 @@ Aquí tenés el código de tu Plantilla Maestra Premium con el **Google Native R
             </div>
 
             <div class="text-sm text-primario/90 leading-relaxed font-light">
-              <p>
-                "Ubicación inmejorable, cerca de todo pero súper tranquilo de noche. La atención fue excelente desde el primer mensaje de WhatsApp. Lo recomiendo totalmente."
-              </p>
+              <p>"Ubicación inmejorable, cerca de todo pero súper tranquilo de noche. La atención fue excelente desde el primer mensaje de WhatsApp. Lo recomiendo."</p>
             </div>
-
           </article>
 
           <article class="bg-tarjeta p-6 rounded-2xl shadow-sm border border-primario/10 flex flex-col gap-5 transition-colors duration-500">
-            
             <div class="flex items-center gap-4">
               <img src="https://ui-avatars.com/api/?name=Familia+Dominguez&background=random&color=fff" alt="Usuario" class="w-11 h-11 rounded-full object-cover shadow-inner">
               <div>
                 <h4 class="font-bold text-primario text-sm">Familia Domínguez</h4>
-                <p class="text-xs text-primario/60leading-none">Hace 3 meses</p>
+                <p class="text-xs text-primario/60 leading-none mt-1">Hace 3 meses</p>
               </div>
             </div>
 
@@ -577,15 +301,11 @@ Aquí tenés el código de tu Plantilla Maestra Premium con el **Google Native R
             </div>
 
             <div class="text-sm text-primario/90 leading-relaxed font-light">
-              <p>
-                "Fuimos con los chicos y estuvimos comodísimos. Las habitaciones son amplias y la cocina tiene de todo. ¡Volveremos seguro para las próximas vacaciones!"
-              </p>
+              <p>"Fuimos con los chicos y estuvimos comodísimos. Las habitaciones son amplias y la cocina tiene de todo. ¡Volveremos seguro para las próximas vacaciones!"</p>
             </div>
-
           </article>
 
         </div>
-        
       </div>
     </section>
 
@@ -648,13 +368,10 @@ Aquí tenés el código de tu Plantilla Maestra Premium con el **Google Native R
   </div>
 
   <script>
-    // ==========================================
-    // SISTEMA DE TEMAS DE LA PLANTILLA GLOBAL (JS)
-    // ==========================================
+    // SISTEMA DE TEMAS (JS)
     function setTheme(themeName) {
       document.documentElement.setAttribute('data-theme', themeName);
       localStorage.setItem('oasis-theme', themeName);
-      
       const inputs = document.querySelectorAll('input[type="date"]');
       if (themeName === 'noche') {
         inputs.forEach(input => input.style.colorScheme = 'dark');
@@ -662,16 +379,12 @@ Aquí tenés el código de tu Plantilla Maestra Premium con el **Google Native R
         inputs.forEach(input => input.style.colorScheme = 'light');
       }
     }
-
     (function() {
       const savedTheme = localStorage.getItem('oasis-theme') || 'violeta';
       setTheme(savedTheme);
     })();
 
-
-    // =========================================================================
     // ✏️ EDITAR AQUÍ: NÚMERO DE WHATSAPP (JS)
-    // =========================================================================
     const WHATSAPP_NUMBER = '{{TELEFONO_WHATSAPP}}'; 
 
     let adults = 2; 
@@ -704,18 +417,14 @@ Aquí tenés el código de tu Plantilla Maestra Premium con el **Google Native R
         const newChildren = children + change;
         if (newChildren >= 0 && newChildren <= 4) children = newChildren;
       }
-      
       adultsCountEl.innerText = adults;
       childrenCountEl.innerText = children;
-      
       const textAdults = adults === 1 ? 'Adulto' : 'Adultos';
       const textChildren = children === 1 ? 'Niño' : 'Niños';
       guestsSummary.innerText = `${adults} ${textAdults} - ${children} ${textChildren}`;
     }
 
-    // =========================================================================
-    // ✏️ EDITAR AQUÍ: MENSAJES DE WHATSAPP PREDETERMINADOS
-    // =========================================================================
+    // ✏️ EDITAR AQUÍ: MENSAJES DE WHATSAPP
     function initiateGeneralWhatsAppQuery() {
       const greeting = "Hola, quisiera consultar sobre {{NOMBRE_PROYECTO}}";
       const encodedGreeting = encodeURIComponent(greeting);
@@ -729,9 +438,7 @@ Aquí tenés el código de tu Plantilla Maestra Premium con el **Google Native R
       window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodedGreeting}`, '_blank');
     }
 
-    // =========================================================================
-    // ✏️ EDITAR AQUÍ: LINKS DE LAS IMÁGENES DEL LIGHTBOX
-    // =========================================================================
+    // ✏️ EDITAR AQUÍ: LINKS DEL LIGHTBOX
     const images = [
       "{{FOTO_1}}",
       "{{FOTO_2}}",
@@ -794,7 +501,6 @@ Aquí tenés el código de tu Plantilla Maestra Premium con el **Google Native R
       const today = new Date();
       const tomorrow = new Date(today);
       tomorrow.setDate(tomorrow.getDate() + 1);
-      
       document.getElementById('arrival').min = today.toISOString().split('T')[0];
       document.getElementById('departure').min = tomorrow.toISOString().split('T')[0];
     });
